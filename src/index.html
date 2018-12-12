@@ -5,58 +5,49 @@
     <title>Data Lovers</title>
     <link rel="stylesheet" href="style.css" />
   </head>
+  <body>
   <header>
     <nav>
       <ul class="barra-menu">
-        <li onclick="aPagInicio()" class="letras-menu">Inicio</li>
-        <li onclick="aPagPokedex()" class="letras-menu">Pokedex</li>
-        <li onclick="aPagDescarga()" class="letras-menu">Descarga</li>
+        <li id="pp1" class="letras-menu">Inicio</li>
+        <li id="pp2" class="letras-menu">Pokedex</li>
+        <li  class="letras-menu">Descarga</li>
       </ul>
     </nav>
   </header>
-  <body>
-    <div id="root">
-    </div>
-    <script src="./data/pokemon/pokemon.js"></script>
-    <!-- <script src="./data/steam/steam.js"></script> -->
-    <!-- <script src="./data/worldbank/worldbank.js"></script> -->
-    <!-- <script src="./data/lol/lol.js"></script> -->
-    <div class="inicio">
-      
-    </div>
-    <div class="pokedex">
-      <form>
-        <input id="" type= "text" class="caja" size="20" name="">
-        <input type="submit" class="lupa" value="">
-        <label for="">Ordenar por:</label>
-        <select name="OS">
-            <option value="">Nombre</option> 
-            <option value="">Tipo</option> 
-          </select>
-          <select name="OS">
-              <option value="">Ascendente</option> 
-              <option value="">Descendente</option> 
-            </select>
-      </form>
-      <div class="grid-container">
-        <div class="item"><input type= "image">1</div>
-        <div class="item"><input type= "image">2</div>
-        <div class="item"><input type= "image">3</div>  
-        <div class="item"><input type= "image">4</div>
-        <div class="item"><input type= "image">5</div>
-        <div class="item"><input type= "image">6</div>
-        <div class="item"><input type= "image">7</div>
-        <div class="item"><input type= "image">8</div>
-        <div class="item"><input type= "image">9</div>  
-        <div class="item"><input type= "image">10</div>
-        <div class="item"><input type= "image">11</div>
-        <div class="item"><input type= "image">12</div>
+    <main>
+      <script src="./data/pokemon/pokemon.js"></script>
+      <div id= "inicio" class="iniciop">
+        <p>hola prueba</p>
+
+
+
+        
       </div>
-     </div>
-     <div class="descarga"> 
-          <p>hola3</p>
-          
+      <div id="pokedex" class="pokedexp">
+            <form>
+              <input id="textfilter" type= "text" class="caja" size="20" name="">
+              <button id="buttonSearch" type="button" class="lupa" value=""></button>
+              <label for="">Ordenar por:</label>
+              <select name="OS">
+                  <option value="">Nombre</option> 
+                  <option value="">Tipo</option> 
+                </select>
+                <select name="OS">
+                    <option value="">Ascendente</option> 
+                    <option value="">Descendente</option> 
+                  </select>
+            </form>
+            <div id="viewListFilter" class="grid-ListFilter">
+
+            </div>
+          </div>
+      <div id= "descarga" class="descargap"> 
+        
+            <p>hola 3</p>
+        
       </div>
+    </main>
     <script src="data.js"></script>
     <script src="main.js"></script>
   </body>
