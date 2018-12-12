@@ -86,6 +86,6 @@ window.data = {
   //computeStats: computeStatsFunction,
 }
 
-const prueba3 = filterDataFunction(POKEMON.pokemon,'char',1);
-console.log(prueba3);
-console.log(sortDataFunction(prueba3, 1, 0));
+// const prueba3 = filterDataFunction(POKEMON.pokemon,'char',1);
+// console.log(prueba3);
+// console.log(sortDataFunction(prueba3, 1, 0));
