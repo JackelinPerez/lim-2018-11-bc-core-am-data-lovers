@@ -1,7 +1,7 @@
-#segunda-pag{
+  .pokedexp{
     display:none;
   }
-  #tercera-pag{
+  .descargap{
     display:none;
   }
   nav{
@@ -32,4 +32,16 @@
   }
   .caja{
     height: 30px;
+  }
+  .grid-container {
+    display: grid;
+    grid-template-columns: auto auto auto auto;
+    grid-gap: 50px;
+    padding: 10px;
+  }
+  .item{
+    background-color: rgba(129, 126, 126, 0.8);
+    text-align: center;
+    padding:20px 0;
+    font-size: 30px;
   }
