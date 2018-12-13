@@ -24,16 +24,16 @@
       <div id= "inicio" class="iniciop">
         <section class="wrap">
           <h1>Pokémon GO</h1>
-          <p>Viaja entre el mundo real y el mundo virtual de Pokémon con Pokémon GO, 
-            para dispositivos iPhone y Android. Con Pokémon GO descubrirás Pokémon en 
-            un mundo completamente nuevo, ¡tu propio mundo! Pokémon GO te da la oportunidad 
-            de explorar lugares reales y de buscar Pokémon por todos lados. Más y más Pokémon 
+          <p>Viaja entre el mundo real y el mundo virtual de Pokémon con Pokémon GO,
+            para dispositivos iPhone y Android. Con Pokémon GO descubrirás Pokémon en
+            un mundo completamente nuevo, ¡tu propio mundo! Pokémon GO te da la oportunidad
+            de explorar lugares reales y de buscar Pokémon por todos lados. Más y más Pokémon
             siguen apareciendo por todo el mundo, incluyendo Pokémon legendarios raros y poderosos.</p>
-          <p>A medida que te muevas por el lugar donde vives y los sitios que visites, tu smartphone 
-            podrá vibrar para hacerte saber que estás cerca de un Pokémon. Una vez que te hayas encontrado 
-            con un Pokémon, apunta en la pantalla táctil de tu smartphone y lanza una Poké Ball para 
-            atraparlo, ¡pero ten cuidado, porque podría salir huyendo! También puedes buscar Poképaradas 
-            situadas en lugares interesantes, como instalaciones de arte, puntos históricos y monumentos 
+          <p>A medida que te muevas por el lugar donde vives y los sitios que visites, tu smartphone
+            podrá vibrar para hacerte saber que estás cerca de un Pokémon. Una vez que te hayas encontrado
+            con un Pokémon, apunta en la pantalla táctil de tu smartphone y lanza una Poké Ball para
+            atraparlo, ¡pero ten cuidado, porque podría salir huyendo! También puedes buscar Poképaradas
+            situadas en lugares interesantes, como instalaciones de arte, puntos históricos y monumentos
             públicos, donde puedes recoger más Poké Balls y otros objetos.</p>
         </section>
       </div>
@@ -42,25 +42,27 @@
               <input id="textfilter" type= "text" class="box" size="20" name="">
               <button id="buttonSearch" type="button" class="lens" value=""></button>
               <label for="">Ordenar por:</label>
-              <select name="OS">
-                  <option id="1" value="">Nombre</option> 
-                  <option id="2" value="">Tipo</option> 
+              <select id="filterAs">
+                  <option value="0">ID</option>
+                  <option value="1">Nombre</option>
+                  <option value="2">Tipo</option>
+                  <option value="3">Debilidades</option>
               </select>
-              <select id="second-menu" name="OS">
-                  <option value="00">ID ascendente</option> 
+              <select id="orderAs">
+                  <option value="00">ID ascendente</option>
                   <option value="01">ID descendente</option>
                   <option value="10">A-Z</option>
-                  <option value="11">Z-A</option> 
+                  <option value="11">Z-A</option>
               </select>
             </form>
             <div id="viewListFilter" class="grid-ListFilter">
 
             </div>
       </div>
-      <div id= "descarga" class="descargap"> 
-        
+      <div id= "descarga" class="descargap">
+
             <p>hola 3</p>
-        
+
       </div>
     </main>
     <script src="data.js"></script>

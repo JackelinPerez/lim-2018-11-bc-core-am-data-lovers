@@ -1,44 +1,50 @@
 const filterDataFunction = (data, dataFilter, condition) => {
-
+  let dataCopy = [];
   let arrayFilter = [];
   let newArrayFilter = [];
 
+  for (let i = 0; i < data.length; i++)
+    dataCopy.push(Object.assign({}, data[i]));
+
+  if(dataFilter.length === 0)
+    return dataCopy;
+
   switch (condition) {
     case 0:
-      for (let i = 0; i < data.length; i++) {
-        arrayFilter.push(data[i].num);
+      for (let i = 0; i < dataCopy.length; i++) {
+        arrayFilter.push(dataCopy[i].num);
         if (arrayFilter[i].indexOf(dataFilter)!==-1)
-          newArrayFilter.push(data[i]);
+          newArrayFilter.push(dataCopy[i]);
       }
       break;
     case 1:
-      for (let i = 0; i < data.length; i++) {
-        arrayFilter.push(data[i].name.toLowerCase());
+      for (let i = 0; i < dataCopy.length; i++) {
+        arrayFilter.push(dataCopy[i].name.toLowerCase());
         if (arrayFilter[i].indexOf(dataFilter.toLowerCase())!==-1)
-          newArrayFilter.push(data[i]);
+          newArrayFilter.push(dataCopy[i]);
       }
       break;
     case 2:
-      for (let i = 0; i < data.length; i++) {
-        for (let j = 0; j < data[i].type.length; j++) {
-          arrayFilter.push(data[i].type[j].toLowerCase());
+      for (let i = 0; i < dataCopy.length; i++) {
+        for (let j = 0; j < dataCopy[i].type.length; j++) {
+          arrayFilter.push(dataCopy[i].type[j].toLowerCase());
           if (arrayFilter[j].indexOf(dataFilter.toLowerCase())!==-1)
-            newArrayFilter.push(data[i]);
+            newArrayFilter.push(dataCopy[i]);
         }
         arrayFilter = [];
       }
       break;
     case 3:
-      for (let i = 0; i < data.length; i++) {
-        for (let j = 0; j < data[i].weaknesses.length; j++) {
-          arrayFilter.push(data[i].weaknesses[j].toLowerCase());
+      for (let i = 0; i < dataCopy.length; i++) {
+        for (let j = 0; j < dataCopy[i].weaknesses.length; j++) {
+          arrayFilter.push(dataCopy[i].weaknesses[j].toLowerCase());
           if (arrayFilter[j].indexOf(dataFilter.toLowerCase())!==-1)
-            newArrayFilter.push(data[i]);
+            newArrayFilter.push(dataCopy[i]);
         }
         arrayFilter = [];
       }
       break;
-    default: newArrayFilter.push('No se eligio Tipo de filtro');
+    default: alert ('No existe opcion');
   }
   return newArrayFilter;
 };
@@ -48,7 +54,7 @@ const sortDataFunction = (data, sortBy, sortOrder) =>{
   let newArrayFilter = [];
 
   for (let i = 0; i < data.length; i++)
-    newArrayFilter.push(data[i]);
+    newArrayFilter.push(Object.assign({},data[i]));
 
   if(sortBy === 0){
     //Ordenas por ID
@@ -77,15 +83,8 @@ const sortDataFunction = (data, sortBy, sortOrder) =>{
   return newArrayFilter ;
 }
 
-// const computeStatsFunction = (data) =>{
-//   return 1;
-// }
 window.data = {
   filterData: filterDataFunction,
   sortData: sortDataFunction,
   //computeStats: computeStatsFunction,
 }
-
-// const prueba3 = filterDataFunction(POKEMON.pokemon,'char',1);
-// console.log(prueba3);
-// console.log(sortDataFunction(prueba3, 1, 0));
