@@ -22,32 +22,34 @@
 
 
 
-        
+
       </div>
       <div id="pokedex" class="pokedexp">
             <form>
               <input id="textfilter" type= "text" class="caja" size="20" name="">
               <button id="buttonSearch" type="button" class="lupa" value=""></button>
               <label for="">Ordenar por:</label>
-              <select name="OS">
-                  <option id="1" value="">Nombre</option> 
-                  <option id="2" value="">Tipo</option> 
+              <select id="filterAs">
+                  <option value="0">ID</option>
+                  <option value="1">Nombre</option>
+                  <option value="2">Tipo</option>
+                  <option value="3">Debilidades</option>
               </select>
-              <select id="second-menu" name="OS">
-                  <option value="00">ID ascendente</option> 
+              <select id="orderAs">
+                  <option value="00">ID ascendente</option>
                   <option value="01">ID descendente</option>
                   <option value="10">A-Z</option>
-                  <option value="11">Z-A</option> 
+                  <option value="11">Z-A</option>
               </select>
             </form>
             <div id="viewListFilter" class="grid-ListFilter">
 
             </div>
       </div>
-      <div id= "descarga" class="descargap"> 
-        
+      <div id= "descarga" class="descargap">
+
             <p>hola 3</p>
-        
+
       </div>
     </main>
     <script src="data.js"></script>
