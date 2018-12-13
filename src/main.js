@@ -2,14 +2,29 @@ const textfilter= document.getElementById('textfilter');
 const buttonSearch= document.getElementById('buttonSearch');
 const viewListFilter=document.getElementById('viewListFilter');
 
-const prueba= document.getElementById("pokedex");
-const pagina2= document.getElementById("inicio");
-const vamosAPagPokedex= document.getElementById("pp2");
+const pag1= document.getElementById("inicio");
+const pag2= document.getElementById("pokedex");
+const pag3= document.getElementById("descarga");
+const goToPagInicio= document.getElementById("pp1");
+const goToPagPokedex= document.getElementById("pp2");
+const goToPagDescarga= document.getElementById("pp3");
 
+goToPagInicio.addEventListener("click", function(){
+ pag1.style.display = "block";
+  pag2.classList.add("pokedexp");
+  pag3.classList.add("descargap");
+})
 
-vamosAPagPokedex.addEventListener("click", function pag2(){
-   pagina2.style.display = "none";
-   prueba.classList.remove("pokedexp");
+goToPagPokedex.addEventListener("click", function(){
+   pag1.style.display = "none";
+   pag2.classList.remove("pokedexp");
+   pag3.classList.add("descargap");
+})
+
+goToPagDescarga.addEventListener("click", function(){
+  pag1.style.display = "none";
+  pag3.classList.remove("descargap");
+  pag2.classList.add("pokedexp");
 })
 
 const orderAs = document.getElementById("orderAs");
@@ -45,3 +60,12 @@ const functionMain = () =>{
 }
 
 functionMain();
+
+const x = document.getElementById("my-board");
+function functBoard(){
+  if (x.className === "board") {
+    x.className += " responsive";
+  } else {
+    x.className = "board";
+  }
+}

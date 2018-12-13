@@ -2,32 +2,45 @@
 <html>
   <head>
     <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <title>Data Lovers</title>
     <link rel="stylesheet" href="style.css" />
   </head>
   <body>
   <header>
-    <nav>
-      <ul class="barra-menu">
-        <li id="pp1" class="letras-menu">Inicio</li>
-        <li id="pp2" class="letras-menu">Pokedex</li>
-        <li  class="letras-menu">Descarga</li>
-      </ul>
-    </nav>
+    <div class="board" id="my-board" >
+      <nav>
+          <a id="pp1" class="letras-menu active">Inicio</a>
+          <a id="pp2" class="letras-menu">Pokedex</a>
+          <a id="pp3" class="letras-menu">Descarga</a>
+          <a href="javascript:void(0);" class="icon" onclick="functBoard()">
+            <i class="fa fa-bars"></i></a>
+      </nav>
+    </div>
   </header>
     <main>
       <script src="./data/pokemon/pokemon.js"></script>
       <div id= "inicio" class="iniciop">
-        <p>hola prueba</p>
-
-
-
-
+        <section class="wrap">
+          <h1>Pokémon GO</h1>
+          <p>Viaja entre el mundo real y el mundo virtual de Pokémon con Pokémon GO,
+            para dispositivos iPhone y Android. Con Pokémon GO descubrirás Pokémon en
+            un mundo completamente nuevo, ¡tu propio mundo! Pokémon GO te da la oportunidad
+            de explorar lugares reales y de buscar Pokémon por todos lados. Más y más Pokémon
+            siguen apareciendo por todo el mundo, incluyendo Pokémon legendarios raros y poderosos.</p>
+          <p>A medida que te muevas por el lugar donde vives y los sitios que visites, tu smartphone
+            podrá vibrar para hacerte saber que estás cerca de un Pokémon. Una vez que te hayas encontrado
+            con un Pokémon, apunta en la pantalla táctil de tu smartphone y lanza una Poké Ball para
+            atraparlo, ¡pero ten cuidado, porque podría salir huyendo! También puedes buscar Poképaradas
+            situadas en lugares interesantes, como instalaciones de arte, puntos históricos y monumentos
+            públicos, donde puedes recoger más Poké Balls y otros objetos.</p>
+        </section>
       </div>
       <div id="pokedex" class="pokedexp">
             <form>
-              <input id="textfilter" type= "text" class="caja" size="20" name="">
-              <button id="buttonSearch" type="button" class="lupa" value=""></button>
+              <input id="textfilter" type= "text" class="box" size="20" name="">
+              <button id="buttonSearch" type="button" class="lens" value=""></button>
               <label for="">Ordenar por:</label>
               <select id="filterAs">
                   <option value="0">ID</option>
