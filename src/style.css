@@ -4,33 +4,80 @@
   .descargap{
     display:none;
   }
-  nav{
-    width: auto;
-    height: 60px;
-    background: #DC290D;
-    display: flex;
-    justify-content: center;
-  }
-  .barra-menu{
-    display: flex;
-    list-style: none;
+  header{
+    width: 100%;
+    overflow: hidden;
+    margin-bottom: 20px;
   }
   .letras-menu{
-    display: block;
-    padding: 20px;
-    color: white;
-    text-decoration: none;
     font-family: Arial, Helvetica, sans-serif;
   }
-  .lupa{
-    background-image: url(https://assets.pokemon.com/static2/_ui/img/chrome/forms/input-search-bg.png);
+  .board {
+    overflow: hidden;
+    background-color: #DC290D;
+  }
+  
+  .board a{
+    float: left;
+    display: block;
+    color: #f2f2f2;
+    text-align: center;
+    padding: 14px 30px;
+    text-decoration: none;
+    font-size: 17px;
+  }
+  
+  .board a:hover {
+    background-color: #ddd;
+    color: black;
+  }
+  
+  .active {
+    background-color: rgb(54, 3, 3);
+    color: white;
+  }
+  
+  .board .icon {
+    display: none;
+  }
+  
+  @media screen and (max-width: 600px) {
+    .board a:not(:first-child) {display: none;}
+    .board a.icon {
+      float: right;
+      display: block;
+    }
+    .board.responsive {position: relative;}
+    .board.responsive .icon {
+      position: absolute;
+      right: 0;
+      top: 0;
+    }
+    .board.responsive a {
+      float: none;
+      display: block;
+      text-align: left;
+    }
+  }
+
+
+
+
+  .wrap{
+    width: 90%;
+    max-width: 1000px;
+    margin: auto;
+    overflow: hidden;
+  }
+  .lens{
+    background-image: url(lupita.png);
     background-position: center;
     background-repeat: no-repeat;
     color: #fff;
     height: 30px;
     width: 30px;
   }
-  .caja{
+  .box{
     height: 30px;
   }
   .grid-ListFilter {
