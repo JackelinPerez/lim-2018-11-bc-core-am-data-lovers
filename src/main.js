@@ -61,11 +61,3 @@ const functionMain = () =>{
 
 functionMain();
 
-const x = document.getElementById("my-board");
-function functBoard(){
-  if (x.className === "board") {
-    x.className += " responsive";
-  } else {
-    x.className = "board";
-  }
-}

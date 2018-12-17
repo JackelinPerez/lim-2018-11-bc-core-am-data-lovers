@@ -8,22 +8,22 @@
     <link rel="stylesheet" href="style.css" />
   </head>
   <body>
-  <header>
-    <div class="board" id="my-board" >
-      <nav>
-          <a id="pp1" class="letras-menu active">Inicio</a>
-          <a id="pp2" class="letras-menu">Pokedex</a>
-          <a id="pp3" class="letras-menu">Descarga</a>
-          <a href="javascript:void(0);" class="icon" onclick="functBoard()">
-            <i class="fa fa-bars"></i></a>
-      </nav>
-    </div>
-  </header>
-    <main>
+    <header>
+        <input type="checkbox" id="btn-menu">
+        <label for="btn-menu"><img src="img-menu.png" alt="Menú"></label>
+        <nav class="menu">
+          <ul>
+            <li><a id="pp1"><img src="icon-house.png" class="in-line" alt="Inicio">Inicio</a></li>
+            <li><a id="pp2"><img src="img-pokedex.png" class="in-line" alt="Pokedex">Pokedex</a></li>
+            <li><a id="pp3"><img src="img-est.png" class="in-line" alt="Estadísticas">Estadísticas</a></li>
+          </ul>
+        </nav>
+    </header>
+    <main  class="wrap">
       <script src="./data/pokemon/pokemon.js"></script>
       <div id= "inicio" class="iniciop">
-        <section class="wrap">
-          <h1>Pokémon GO</h1>
+        <section>
+          <h1>Pokémon Go</h1>
           <p>Viaja entre el mundo real y el mundo virtual de Pokémon con Pokémon GO,
             para dispositivos iPhone y Android. Con Pokémon GO descubrirás Pokémon en
             un mundo completamente nuevo, ¡tu propio mundo! Pokémon GO te da la oportunidad
@@ -36,35 +36,54 @@
             situadas en lugares interesantes, como instalaciones de arte, puntos históricos y monumentos
             públicos, donde puedes recoger más Poké Balls y otros objetos.</p>
         </section>
+        <aside>
+            <a href="https://play.google.com/store/apps/details?id=com.nianticlabs.pokemongo" class="img-aside" target="_blank"><img src="app-store.jpg" alt="App Store"></a>
+            <a href="https://itunes.apple.com/es/app/pokemon-go/id1094591345?mt=8" class="img-aside" target="_blank"><img src="google-play.jpg" alt="Google Play"></a>
+        </aside>
       </div>
       <div id="pokedex" class="pokedexp">
+        <h1>Pokédex</h1>
             <form>
-              <input id="textfilter" type= "text" class="box" size="20" name="">
-              <button id="buttonSearch" type="button" class="lens" value=""></button>
-              <label for="">Ordenar por:</label>
-              <select id="filterAs">
-                  <option value="0">ID</option>
-                  <option value="1">Nombre</option>
-                  <option value="2">Tipo</option>
-                  <option value="3">Debilidades</option>
-              </select>
-              <select id="orderAs">
-                  <option value="00">ID ascendente</option>
-                  <option value="01">ID descendente</option>
-                  <option value="10">A-Z</option>
-                  <option value="11">Z-A</option>
-              </select>
+              <div class="centerup">
+                <input id="textfilter" type= "text" size="20" class="box" name="text">
+                <label for="textfilter" id="buttonSearch"><img src="lup.png"  class="lens box" alt="Search"></label>
+              </div>
+                <label for="filterAs">Ordenar por:</label>
+                <div class="down">
+                <select id="filterAs" class="filter-one box">
+                    <option value="0">ID</option>
+                    <option value="1">Nombre</option>
+                    <option value="2">Tipo</option>
+                    <option value="3">Debilidades</option>
+                </select>
+                <select id="orderAs" class="filter-two box">
+                    <option value="00">ID ascendente</option>
+                    <option value="01">ID descendente</option>
+                    <option value="10">A-Z</option>
+                    <option value="11">Z-A</option>
+                </select>
+              </div>
             </form>
             <div id="viewListFilter" class="grid-ListFilter">
-
+              
+                
+              
             </div>
       </div>
       <div id= "descarga" class="descargap">
-
-            <p>hola 3</p>
+        <h1>Estadísticas</h1>
 
       </div>
     </main>
+    <footer>
+      <div class="social-bar">
+        <a href="https://www.facebook.com/PokemonGO/" target="_blank"><img src="fb.png" alt="Facebook"></a>
+        <a href="https://dondepokemongo.es/blog.html" target="_blank"><img src="blog.png" alt="Blogger"></a>
+        <a href="https://twitter.com/pokemongoapp" target="_blank"><img src="twt.png" alt="Twitter"></a>
+        <a href="https://www.youtube.com/channel/UCA698bls2pjQyiqP9N-iaeg" target="_blank"><img src="yt.png" alt="Twitter"></a>
+      </div>
+      <p>©Copyright 2018 by Jackelin Perez and Athala Abanto</p>
+    </footer>
     <script src="data.js"></script>
     <script src="main.js"></script>
   </body>

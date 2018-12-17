@@ -1,97 +1,181 @@
-  .pokedexp{
+*{
+  margin: 0px;
+  padding: 0px;
+}
+.pokedexp{
     display:none;
-  }
-  .descargap{
+}
+.descargap{
     display:none;
-  }
-  header{
-    width: 100%;
-    overflow: hidden;
-    margin-bottom: 20px;
-  }
-  .letras-menu{
-    font-family: Arial, Helvetica, sans-serif;
-  }
-  .board {
-    overflow: hidden;
-    background-color: #DC290D;
-  }
-  
-  .board a{
-    float: left;
-    display: block;
-    color: #f2f2f2;
-    text-align: center;
-    padding: 14px 30px;
-    text-decoration: none;
-    font-size: 17px;
-  }
-  
-  .board a:hover {
-    background-color: #ddd;
-    color: black;
-  }
-  
-  .active {
-    background-color: rgb(54, 3, 3);
-    color: white;
-  }
-  
-  .board .icon {
-    display: none;
-  }
-  
-  @media screen and (max-width: 600px) {
-    .board a:not(:first-child) {display: none;}
-    .board a.icon {
-      float: right;
-      display: block;
-    }
-    .board.responsive {position: relative;}
-    .board.responsive .icon {
-      position: absolute;
-      right: 0;
-      top: 0;
-    }
-    .board.responsive a {
-      float: none;
-      display: block;
-      text-align: left;
-    }
-  }
+}
+body{
+  margin: 0;
+  font-family: sans-serif;
+  background: url("fondo.jpg");
+}
+header{
+  width: 100%;
+  background: rgb(70, 69, 69);
+  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+  box-shadow: 1px 1px 3px #000;
+}
+main{
+  background: #fff;
+  padding: 20px;
+}
+section{
+  float: left;
+  width: 60%;
+}
+aside{
+  float: right;
+  width: 40%;
+}
 
+h1{
+  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+  font-size: 50px;
+  padding: 20px;
+}
+#btn-menu{
+  display: none;
+}
+header label{
+  display: none;
+  width: 30px;  
+  height: 30px;
+  padding: 10px;
+  border-right: 1px solid #fff;
+}
+header label:hover {
+  cursor: pointer;
+  background: rgba(32, 32, 32, 0.3);
+}
+.menu ul{
+  margin: 0;
+  list-style: none;
+  padding: 0;
+  display: flex; /*importantisimo en filas horizontal*/
+ /* justify-content: flex-end;* para que se valla a la derecha*/
+ /*justify-content: center;*/
+ flex-direction: row;/*importantisimo lo pone en vertical*/
 
+}
+.menu li {
+text-align: center;
+flex-grow: 1; /*para que ocupe todo el ancho */
+border-right: 1px solid #fff;
+}
+.menu li:hover{
+cursor: pointer;
+background: rgb(0, 0, 0);
 
+}
+.menu li a {
+display: block;
+padding:  15px 20px;
+color: #fff;
+text-decoration:none;
+}
 
-  .wrap{
-    width: 90%;
-    max-width: 1000px;
-    margin: auto;
-    overflow: hidden;
-  }
-  .lens{
-    background-image: url(lupita.png);
-    background-position: center;
-    background-repeat: no-repeat;
-    color: #fff;
-    height: 30px;
-    width: 30px;
+.wrap{
+   width: 90%;
+   max-width: 1000px;
+   margin: auto;
+   overflow: hidden;
+   text-justify: auto;
+ }
+ .centerup{
+  text-align: center;
+  justify-content: center;
+  height: 30px;
+}
+.down{
+  padding-bottom: 50px;
+}
+.filter-one{
+  float: left;
+}
+.filter-two{
+  float: right;
+}
+.lens{
+   background-repeat: no-repeat;
+   background: rgb(70, 69, 69);
+   background-size: 50px;
+   display: inline-block;
   }
   .box{
     height: 30px;
+    border-radius: 3px;
   }
-  .grid-ListFilter {
+.grid-ListFilter {
     display: grid;
-    grid-row-gap: 50px;
+    grid-row-gap: 20px;
     grid-column-gap: 50px; 
-    grid-template-columns: auto auto auto;
+    grid-template-columns: repeat(3, 1fr);
     padding: 10px;
   }
   
-  .grid-item {
-    background-color: rgba(255, 255, 255, 0.8);
+ .grid-item {
+    background-color: rgba(223, 219, 219, 0.8);
     border: 1px solid rgba(0, 0, 0, 0.8);
     padding: 20px;
     font-size: 30px;
     text-align: center;
+    border-color: #fff;
+    border-radius: 10px;
+    color: rgb(0, 0, 0);
   }
+  img.in-line{
+    display: block;
+    margin: 20px auto;
+  }
+
+  @media(max-width: 768px){
+    .grid-ListFilter{
+      max-width: 800px;
+      grid-template-columns: repeat(1, 1fr);
+    }
+    header label{
+    display: block;
+    }
+    .menu {
+    position: absolute;
+    background: rgb(70, 69, 69);
+    width: 70%;
+    margin-left: -70%; /*como es negativo se sale del pantalla*/
+    transition: all 0.5s;
+    }
+    .menu ul{
+    flex-direction: column;
+    }
+    .menu li {
+    border-top: 1px   solid #fff;
+    }
+    #btn-menu:checked~.menu{
+    margin-left:0;
+    }
+    section{
+      width: 100%;
+    }
+    aside{
+      width: 100%;
+    }
+  }
+footer{
+  width: 100%;
+  height: 130px;
+  background: rgb(70, 69, 69);
+  color: #fff;
+  padding-top: 20px;
+}
+.social-bar{
+  background: rgb(95, 95, 95);
+  width: 100%;
+  text-align: center;
+}
+footer p{
+  padding-top: 10px;
+  text-align: center;
+}
