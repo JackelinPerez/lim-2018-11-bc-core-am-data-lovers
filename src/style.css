@@ -12,6 +12,8 @@ body{
   margin: 0;
   font-family: sans-serif;
   background: url("fondo.jpg");
+  background-attachment: fixed;
+  z-index: 100;
 }
 header{
   width: 100%;
@@ -100,14 +102,15 @@ text-decoration:none;
   float: right;
 }
 .lens{
-   background-repeat: no-repeat;
-   background: rgb(70, 69, 69);
-   background-size: 50px;
-   display: inline-block;
+  background: rgb(133, 16, 16);
+  font-size: 20px;
+  border-radius: 5px;
+  color: #fff;
+   
   }
   .box{
     height: 30px;
-    border-radius: 3px;
+    border-radius: 5px;
   }
 .grid-ListFilter {
     display: grid;
