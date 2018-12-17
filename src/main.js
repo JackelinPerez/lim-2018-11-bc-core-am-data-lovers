@@ -34,11 +34,19 @@ const functionfilter =(data)=>{
   let newGrill = [];
   viewListFilter.value = '';
   for (let i = 0; i < data.length; i++) {
-    newGrill.push('<div class="grid-item">'
+    newGrill.push('<a href="#openmodal" class="open">'
+                  + '<div class="grid-item">'
                   +'<input type="image" src="'+data[i].img +'" >'+'<br>'
                   + '<label>'+data[i].num+'</label>'+'<br>'
                   + '<label>'+data[i].name+'</label>'+'<br>'
-                  + '</div>');
+                  + '</div>'
+                  +'</a>'
+                  + '<section id="openmodal" class="modal-dialog">'
+                  +'<section class="modal">'
+                  +'<a href="#close" class="close">'+ 'X'+'</a>'
+                  +'</section>'
+                  + '</section>'
+                  );
   }
   viewListFilter.innerHTML= newGrill.join('');
 }
