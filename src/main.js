@@ -30,14 +30,18 @@ goToPagDescarga.addEventListener("click", function(){
 const orderAs = document.getElementById("orderAs");
 const filterAs = document.getElementById("filterAs");
 
-const filterInArray = (InputArray) =>{
-  const arrayAux=[];
-  for (let index = 0; index < InputArray.length; index++) {
-    arrayAux.push(InputArray[index]);
-  }
-  return arrayAux.join('');
+const filterInArray = (inputArray) =>{
+  // const arrayAux=[];
+  // for (let index = 0; index < InputArray.length; index++) {
+  //   arrayAux.push(InputArray[index]);
+  // }
+  // return arrayAux.join('');
+  return inputArray.map(element => element).join('');
 }
 
+const filterEvolution = (arrayEvolution) =>{
+  const arrayAux = ;
+}
 const functionfilter =(dataInput)=>{
   let newGrill = [];
   const data = [];
@@ -53,25 +57,26 @@ const functionfilter =(dataInput)=>{
           <input type="image" src="${data[i].img}" class="show-img" >
           <label class="show-letter top">N° ${data[i].num}</label>
           <label class="show-letter">${data[i].name}</label>
-          ${filterInArray(data[i].type)}
+          <label>${filterInArray(data[i].type)}</label>
         </div>
       </a>
       <section id="openmodal${i}" class="modal-dialog">
-      <section class="modal">
-      <div class="image-form">
-      <input type="image" src="${data[i].img} " class="show-img" >
-      </div>
-      <div class="info-form">
-      <label><strong>${data[i].name}</strong></label><br>
-      <label>N° ${data[i].num}</label><br>
-      <label>N° ${data[i].height}</label><br>
-      <label>N° ${data[i].weight}</label><br>
-      ${filterInArray(data[i].type)}<br>
-      ${filterInArray(data[i].weaknesses)}<br>
-      </div>
-      <a href="#close" class="close">X</a>
-      </section>
-      </section>`             
+        <section class="modal">
+        <div class="image-form">
+          <input type="image" src="${data[i].img} " class="show-img" >
+          <input type="image" src="${filterEvolution(data[i].prev_evolution)} " class="show-img" >
+        </div>
+        <div class="info-form">
+          <label><strong>${data[i].name}</strong></label><br>
+          <label>N° ${data[i].num}</label><br>
+          <label>N° ${data[i].height}</label><br>
+          <label>N° ${data[i].weight}</label><br>
+          <label>${filterInArray(data[i].type)}<label><br>
+          <label>${filterInArray(data[i].weaknesses)}<label><br>
+        </div>
+        <a href="#close" class="close">X</a>
+        </section>
+      </section>`
     );
   }
   viewListFilter.innerHTML= newGrill.join('');
@@ -94,4 +99,3 @@ const functionMain = () =>{
 }
 
 functionMain();
-
