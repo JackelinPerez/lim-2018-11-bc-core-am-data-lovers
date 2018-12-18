@@ -40,7 +40,7 @@ const filterInArray = (inputArray) =>{
 }
 
 const filterEvolution = (arrayEvolution) =>{
-  const arrayAux = ;
+  const arrayAux = [];
 }
 const functionfilter =(dataInput)=>{
   let newGrill = [];
