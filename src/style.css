@@ -253,8 +253,11 @@ footer p{
   border-top-left-radius: 30px;
   border-top-right-radius: 30px;
 }
-.show-img{
-  padding-top: 10px;
+.show-datimg{
+  margin: 50px;
+  padding: 40px;
+  float: right;
+  background: #fff;
 }
 .show-img:focus{
   outline: none;

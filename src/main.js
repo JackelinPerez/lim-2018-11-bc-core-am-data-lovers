@@ -54,28 +54,27 @@ const functionfilter =(dataInput)=>{
     newGrill.push(`
       <a href="#openmodal${i}" class="open">
         <div class="grid-item">
-          <input type="image" src="${data[i].img}" class="show-img" >
+          <input type="image" src="${data[i].img}" class="show-img">
           <label class="show-letter top">N° ${data[i].num}</label>
           <label class="show-letter">${data[i].name}</label>
           <label>${filterInArray(data[i].type)}</label>
         </div>
       </a>
       <section id="openmodal${i}" class="modal-dialog">
-        <section class="modal">
-        <div class="image-form">
-          <input type="image" src="${data[i].img} " class="show-img" >
-          <input type="image" src="${filterEvolution(data[i].prev_evolution)} " class="show-img" >
-        </div>
-        <div class="info-form">
-          <label><strong>${data[i].name}</strong></label><br>
-          <label>N° ${data[i].num}</label><br>
-          <label>N° ${data[i].height}</label><br>
-          <label>N° ${data[i].weight}</label><br>
-          <label>${filterInArray(data[i].type)}<label><br>
-          <label>${filterInArray(data[i].weaknesses)}<label><br>
-        </div>
-        <a href="#close" class="close">X</a>
-        </section>
+      <section class="modal">
+      <div class="image-form">
+      <input type="image" src="${data[i].img} " class="show-datimg" >
+      </div>
+      <div class="info-form">
+      <label><strong>${data[i].name}</strong></label><br>
+      <label class="show-datletter">N° ${data[i].num}</label><br>
+      <label>N° ${data[i].height}</label><br>
+      <label>N° ${data[i].weight}</label><br>
+      <label>${filterInArray(data[i].type)}</label><br>
+      <label>${filterInArray(data[i].weaknesses)}</label><br>
+      </div>
+      <a href="#close" class="close">X</a>
+      </section>
       </section>`
     );
   }
