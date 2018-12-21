@@ -30,10 +30,10 @@ goToPagDescarga.addEventListener("click", function(){
 const orderAs = document.getElementById("orderAs");
 const filterAs = document.getElementById("filterAs");
 
-const filterInArray = (inputArray) =>{
+const filterInArray = (inputArray, classlabel) =>{
   return inputArray.map(element => {
-    return `<label>${element}</label><br>`;
-  }).join('');
+    return `<label class="${classlabel}">${element}</label>`;
+  }).join( );
 }
 
 const filterEvolution = (data_, arrayEvolution) =>{
@@ -45,8 +45,8 @@ const filterEvolution = (data_, arrayEvolution) =>{
   if(saveObjectPreEvolution) {
     saveObjectPreEvolution.map(element => {
       element.map(ele =>{
-        stringLabelSrc.push(`<input type="image" src="${ele.img}" class="show-img"><br>
-                             <label>Pre Evolucion: ${ele.name}</label><br>`);
+        stringLabelSrc.push(`<input type="image" src="${ele.img}" class="little">
+                             <label class="evolution">Pre Evolucion: ${ele.name}</label>`);
       });
     });
   }
@@ -54,8 +54,8 @@ const filterEvolution = (data_, arrayEvolution) =>{
   if(saveObjectNextEvolution) {
     saveObjectNextEvolution.map(element =>{
       element.map(ele => {
-        stringLabelSrc.push(`<input type="image" src="${ele.img}" class="show-img"><br>
-                               <label>Next Evolucion: ${ele.name}</label><br>`);
+        stringLabelSrc.push(`<input type="image" src="${ele.img}" class="little">
+                               <label class="evolution">Next Evolucion: ${ele.name}</label>`);
       });
     });
   }

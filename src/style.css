@@ -95,7 +95,7 @@ text-decoration:none;
   justify-content: center;
   height: 90px;
   width: 100%;
-  background:  rgb(66, 0, 0);
+  background:  rgb(255, 14, 14);
   border-top-left-radius: 50px;
 }
 .down{
@@ -114,15 +114,19 @@ text-decoration:none;
 .lens{
   font-size: 20px;
   border-radius: 5px;
-  color: #fff;
-  }
+  color: rgb(0, 0, 0);
+  background: #fff;
+  border-radius: 3px;
+  height: 20px;
+}
 .lens:hover{
-cursor: pointer;
+  cursor: pointer;
 }
 .box{
   margin-top: 20px;
-    height: 30px;
-    border-radius: 5px;
+  height: 40px;
+  width: 150px;
+  border-radius: 5px;
   }
 .grid-ListFilter {
     display: grid;
@@ -132,7 +136,7 @@ cursor: pointer;
     padding: auto;
   }
 
- .grid-item {
+.grid-item {
     background-color: rgba(223, 219, 219, 0.8);
     border: 1px solid rgba(0, 0, 0, 0.8);
     padding: auto;
@@ -142,12 +146,12 @@ cursor: pointer;
     border-radius: 10px;
     color: rgb(0, 0, 0);
   }
-  img.in-line{
+img.in-line{
     display: block;
     margin: 20px auto;
   }
 
-  @media(max-width: 768px){
+  @media all and (max-width: 768px){
     .grid-ListFilter{
       grid-template-columns: repeat(1, 1fr);
     }
@@ -302,27 +306,28 @@ footer p{
 }
 .item3 {
   grid-area: footer;
-  display: flex;
+  align-self: flex-end;
 }
 
 .grid-container {
-display: grid;
-grid-template-areas:
-  'header header header header main main'
-  'header header header header main main'
-  'header header header header footer footer';
-grid-gap: 0px;
-background-color: #111;
-padding: 0px;
+  display: grid;
+  grid-template-areas:
+    'header header header header main main'
+    'header header header header main main'
+    'header header header header footer footer';
+  grid-gap: 0px;
+  background-color: #111;
+  padding: 0px;
 }
 
 .grid-container > div {
-background-color: #111;
-padding: 0;
-font-size: 30px;
+  background-color: #111;
+  padding: 0;
+  font-size: 30px;
 }
 .show-datimg{
-  margin: 50px;
+  margin-top: 20px;
+  margin-right: 20px;
   padding: 40px;
   float: right;
   background: #fff;
