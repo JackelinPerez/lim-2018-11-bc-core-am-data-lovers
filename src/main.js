@@ -30,48 +30,82 @@ goToPagDescarga.addEventListener("click", function(){
 const orderAs = document.getElementById("orderAs");
 const filterAs = document.getElementById("filterAs");
 
-const filterInArray = (InputArray) =>{
-  const arrayAux=[];
-  for (let index = 0; index < InputArray.length; index++) {
-    arrayAux.push(InputArray[index]);
-  }
-  return arrayAux.join('');
+const filterInArray = (inputArray,classlabel) =>{
+  return inputArray.map(element => {
+    return `<label class="${classlabel}">${element}</label>`;
+  }).join();
+}
+
+const filterEvolution = (data_, arrayEvolution) =>{
+  let arrayAux;
+  let stringLabelSrc=[];
+  let saveKeysObjectAux=Object.keys(arrayEvolution);
+  let objectArray;
+  let saveKeysObject;
+
+  let prev_next = saveKeysObjectAux.map(element => {
+    if(element==='prev_evolution'){
+      return arrayEvolution.prev_evolution.map( ele =>{
+        objectArray=data.filterData(data_,parseInt(ele.num),0);
+        stringLabelSrc.push(`<input type="image" src="${objectArray[0].img}" class="little"><br>
+                             <label class="evolution">${objectArray[0].name}</label><br>
+                            `);
+        return 1;
+      });
+    }
+    else if(element==='next_evolution'){
+      return arrayEvolution.next_evolution.map( ele =>{
+        objectArray=data.filterData(data_,parseInt(ele.num),0);
+        stringLabelSrc.push(`<input type="image" src="${objectArray[0].img} " class="little">
+                            <label class="evolution">${objectArray[0].name}</label>
+                            `);
+        return 0;
+      });
+    }
+  });
+
+  return stringLabelSrc.join(' ');
 }
 
 const functionfilter =(dataInput)=>{
   let newGrill = [];
-  const data = [];
+  let data = [];
   viewListFilter.value = '';
-  let i;
-  for (i = 0; i < dataInput.length; i++)
+
+  for (let i = 0; i < dataInput.length; i++)
     data.push(Object.assign({}, dataInput[i]));
 
-  for (i = 0; i < data.length; i++) {
+  for (let i = 0; i < data.length; i++) {
     newGrill.push(`
       <a href="#openmodal${i}" class="open">
         <div class="grid-item">
-          <input type="image" src="${data[i].img}" class="show-img">
-          <label class="show-letter top">N° ${data[i].num}</label>
-          <label class="show-letter">${data[i].name}</label>
-          ${filterInArray(data[i].type)}
+          <input type="image" src="${data[i].img}" class="show-img" >
+          <label class="number top">N° ${data[i].num}</label>
+          <label class="letter">${data[i].name}</label>
+          ${filterInArray(data[i].type, 'type')}
         </div>
       </a>
       <section id="openmodal${i}" class="modal-dialog">
-      <section class="modal">
-      <div class="image-form">
-      <input type="image" src="${data[i].img} " class="show-datimg" >
-      </div>
-      <div class="info-form">
-      <label><strong>${data[i].name}</strong></label><br>
-      <label class="show-datletter">N° ${data[i].num}</label><br>
-      <label>N° ${data[i].height}</label><br>
-      <label>N° ${data[i].weight}</label><br>
-      <label>${filterInArray(data[i].type)}</label><br>
-      <label>${filterInArray(data[i].weaknesses)}</label><br>
-      </div>
-      <a href="#close" class="close">X</a>
-      </section>
-      </section>`             
+        <section class="modal">
+    
+        <div class="grid-container">
+          <div class="item1">
+          <label class="show-datletter"><strong>${data[i].name}</strong></label><br><br>
+          <label class="show-datletter">-N° ${data[i].num}</label><br>
+          <label class="show-datletter">-Altura: ${data[i].height}</label><br>
+          <label class="show-datletter">-Peso: ${data[i].weight}</label><br>
+          <label class="show-datletter">-Tipo:</label><br> ${filterInArray(data[i].type, 'show-datletter')}<br>
+          <label class="show-datletter">-Debilidad:</label><br> ${filterInArray(data[i].weaknesses, 'show-datletter')}
+          </div>
+          <div class="item2">
+          <input type="image" src="${data[i].img} " class="show-datimg" >
+          <a href="#close" class="close">X</a>
+          </div>
+          <div class="item3">${filterEvolution(POKEMON.pokemon, data[i])}</div>
+        </div>
+
+        </section>
+      </section>`
     );
   }
   viewListFilter.innerHTML= newGrill.join('');
@@ -94,4 +128,3 @@ const functionMain = () =>{
 }
 
 functionMain();
-
