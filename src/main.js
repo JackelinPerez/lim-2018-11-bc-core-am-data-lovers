@@ -75,28 +75,30 @@ const functionfilter =(dataInput)=>{
       <a href="#openmodal${i}" class="open">
         <div class="grid-item">
           <input type="image" src="${data[i].img}" class="show-img" >
-          <label class="show-letter top">N° ${data[i].num}</label>
-          <label class="show-letter">${data[i].name}</label>
-          ${filterInArray(data[i].type)}
+          <label class="number top">N° ${data[i].num}</label>
+          <label class="letter">${data[i].name}</label>
+          ${filterInArray(data[i].type, 'type')}
         </div>
       </a>
       <section id="openmodal${i}" class="modal-dialog">
         <section class="modal">
-        <div class="image-form">
-          <label class="show-letter top">N° ${data[i].num}</label>
-          <label class="show-letter">${data[i].name}</label>
-          <input type="image" src="${data[i].img} " class="show-img" ></br>
-          ${filterEvolution(POKEMON.pokemon, data[i].num)}
+
+        <div class="grid-container">
+          <div class="item1">
+          <label class="show-datletter"><strong>${data[i].name}</strong></label><br><br>
+          <label class="show-datletter">-N° ${data[i].num}</label><br>
+          <label class="show-datletter">-Altura: ${data[i].height}</label><br>
+          <label class="show-datletter">-Peso: ${data[i].weight}</label><br>
+          <label class="show-datletter">-Tipo:</label><br> ${filterInArray(data[i].type, 'show-datletter')}<br>
+          <label class="show-datletter">-Debilidad:</label><br> ${filterInArray(data[i].weaknesses, 'show-datletter')}
+          </div>
+          <div class="item2">
+          <input type="image" src="${data[i].img} " class="show-datimg" >
+          <a href="#close" class="close">X</a>
+          </div>
+          <div class="item3">${filterEvolution(POKEMON.pokemon, data[i].num)}</div>
         </div>
-        <div class="info-form">
-          <label><strong>${data[i].name}</strong></label><br>
-          <label>N° ${data[i].num}</label><br>
-          <label>N° ${data[i].height}</label><br>
-          <label>N° ${data[i].weight}</label><br>
-          ${filterInArray(data[i].type)}
-          ${filterInArray(data[i].weaknesses)}
-        </div>
-        <a href="#close" class="close">X</a>
+
         </section>
       </section>`
     );
