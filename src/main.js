@@ -31,50 +31,73 @@ const orderAs = document.getElementById("orderAs");
 const filterAs = document.getElementById("filterAs");
 
 const filterInArray = (inputArray) =>{
-  // const arrayAux=[];
-  // for (let index = 0; index < InputArray.length; index++) {
-  //   arrayAux.push(InputArray[index]);
-  // }
-  // return arrayAux.join('');
-  return inputArray.map(element => element).join('');
+  return inputArray.map(element => {
+    return `<label>${element}</label><br>`;
+  }).join('');
 }
 
-const filterEvolution = (arrayEvolution) =>{
-  const arrayAux = [];
+const filterEvolution = (data_, arrayEvolution) =>{
+  let stringLabelSrc=[];
+  let saveObjectPreEvolution = [];
+  let saveObjectNextEvolution = [];
+
+  saveObjectPreEvolution = data.filterData(data_,arrayEvolution,10);
+  if(saveObjectPreEvolution) {
+    saveObjectPreEvolution.map(element => {
+      element.map(ele =>{
+        stringLabelSrc.push(`<input type="image" src="${ele.img}" class="show-img"><br>
+                             <label>Pre Evolucion: ${ele.name}</label><br>`);
+      });
+    });
+  }
+  saveObjectNextEvolution = data.filterData(data_,arrayEvolution,11);
+  if(saveObjectNextEvolution) {
+    saveObjectNextEvolution.map(element =>{
+      element.map(ele => {
+        stringLabelSrc.push(`<input type="image" src="${ele.img}" class="show-img"><br>
+                               <label>Next Evolucion: ${ele.name}</label><br>`);
+      });
+    });
+  }
+  return stringLabelSrc.join('');
 }
+
 const functionfilter =(dataInput)=>{
   let newGrill = [];
-  const data = [];
+  let data = [];
   viewListFilter.value = '';
-  let i;
-  for (i = 0; i < dataInput.length; i++)
+
+  for (let i = 0; i < dataInput.length; i++)
     data.push(Object.assign({}, dataInput[i]));
 
-  for (i = 0; i < data.length; i++) {
+  for (let i = 0; i < data.length; i++) {
     newGrill.push(`
       <a href="#openmodal${i}" class="open">
         <div class="grid-item">
-          <input type="image" src="${data[i].img}" class="show-img">
+          <input type="image" src="${data[i].img}" class="show-img" >
           <label class="show-letter top">N° ${data[i].num}</label>
           <label class="show-letter">${data[i].name}</label>
-          <label>${filterInArray(data[i].type)}</label>
+          ${filterInArray(data[i].type)}
         </div>
       </a>
       <section id="openmodal${i}" class="modal-dialog">
-      <section class="modal">
-      <div class="image-form">
-      <input type="image" src="${data[i].img} " class="show-datimg" >
-      </div>
-      <div class="info-form">
-      <label><strong>${data[i].name}</strong></label><br>
-      <label class="show-datletter">N° ${data[i].num}</label><br>
-      <label>N° ${data[i].height}</label><br>
-      <label>N° ${data[i].weight}</label><br>
-      <label>${filterInArray(data[i].type)}</label><br>
-      <label>${filterInArray(data[i].weaknesses)}</label><br>
-      </div>
-      <a href="#close" class="close">X</a>
-      </section>
+        <section class="modal">
+        <div class="image-form">
+          <label class="show-letter top">N° ${data[i].num}</label>
+          <label class="show-letter">${data[i].name}</label>
+          <input type="image" src="${data[i].img} " class="show-img" ></br>
+          ${filterEvolution(POKEMON.pokemon, data[i].num)}
+        </div>
+        <div class="info-form">
+          <label><strong>${data[i].name}</strong></label><br>
+          <label>N° ${data[i].num}</label><br>
+          <label>N° ${data[i].height}</label><br>
+          <label>N° ${data[i].weight}</label><br>
+          ${filterInArray(data[i].type)}
+          ${filterInArray(data[i].weaknesses)}
+        </div>
+        <a href="#close" class="close">X</a>
+        </section>
       </section>`
     );
   }
@@ -84,7 +107,7 @@ const functionfilter =(dataInput)=>{
 const functionListenFilterOrder = ()=>{
   const listenOrderAs = orderAs.options[orderAs.selectedIndex].value;
   const listenFilterAs = filterAs.options[filterAs.selectedIndex].value;
-  const arrayInputFilter = data.filterData(POKEMON.pokemon,textfilter.value,parseInt(listenFilterAs[0]));
+  const arrayInputFilter = data.filterData(POKEMON.pokemon,textfilter.value,parseInt(listenFilterAs));
 
   functionfilter(data.sortData(arrayInputFilter,parseInt(listenOrderAs[0]), parseInt(listenOrderAs[1])));
   return 1;

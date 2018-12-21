@@ -1,7 +1,15 @@
+const filterNum = (data, dataFilter) => {
+  let dataCopy = [];
+  let newArrayFilter = [];
+  for (let i = 0; i < data.length; i++) dataCopy.push(Object.assign({}, data[i]));
+  newArrayFilter= data.filter(
+  element => element.num.indexOf(dataFilter)>-1);
+  return newArrayFilter;
+}
 const filterDataFunction = (data, dataFilter, condition) => {
   let dataCopy = [];
-  let arrayFilter = [];
   let newArrayFilter = [];
+  let saveObject = [];
 
   for (let i = 0; i < data.length; i++)
     dataCopy.push(Object.assign({}, data[i]));
@@ -11,66 +19,80 @@ const filterDataFunction = (data, dataFilter, condition) => {
 
   switch (condition) {
     case 0:
-      // for (let i = 0; i < dataCopy.length; i++) {
-      //   arrayFilter.push(dataCopy[i].num);
-      //   if (arrayFilter[i].indexOf(dataFilter)!==-1)
-      //     newArrayFilter.push(dataCopy[i]);
-      // }
-      newArrayFilter = dataCopy.filter(
-      element => element.num.indexOf(dataFilter)>-1);
+      newArrayFilter = filterNum(data, dataFilter);
       break;
     case 1:
-      // for (let i = 0; i < dataCopy.length; i++) {
-      //   arrayFilter.push(dataCopy[i].name.toLowerCase());
-      //   if (arrayFilter[i].indexOf(dataFilter.toLowerCase())!==-1)
-      //     newArrayFilter.push(dataCopy[i]);
-      // }
       newArrayFilter = dataCopy.filter(
       element => element.name.toLowerCase().indexOf(dataFilter.toLowerCase())>-1);
       break;
     case 2:
-      // for (let i = 0; i < dataCopy.length; i++) {
-      //   for (let j = 0; j < dataCopy[i].type.length; j++) {
-      //     arrayFilter.push(dataCopy[i].type[j].toLowerCase());
-      //     if (arrayFilter[j].indexOf(dataFilter.toLowerCase())!==-1)
-      //       newArrayFilter.push(dataCopy[i]);
-      //   }
-      //   arrayFilter = [];
-      // }
-
-      //newArrayFilter = dataCopy.filter(function(element){
-        // for (let i = 0; i < element.type.length; i++) {
-        //   newDataFilter = element.type[i].toLowerCase().indexOf(dataFilter.toLowerCase());
-        //   if(newDataFilter > -1) return newDataFilter>-1;
-        // };
-
-        //let newDataFilter;
-        // element.type.forEach(function(elementoHijo){
-        //   newDataFilter = elementoHijo.toLowerCase().indexOf(dataFilter.toLowerCase());
-        // });
-        // if(newDataFilter > -1 ) return element;
-
-        // let newDataFilter= element.type.filter(function(ele){
-        //   return ele.toLowerCase().indexOf(dataFilter.toLowerCase())>-1;
-        // })
-        // console.log('Longitud= '+newDataFilter.length);
-        // return newDataFilter.length >0;
-      //});
-
       newArrayFilter = dataCopy.filter(
       element => element.type.filter(ele => ele.toLowerCase().indexOf(dataFilter.toLowerCase())>-1).length>0);
       break;
     case 3:
-      // for (let i = 0; i < dataCopy.length; i++) {
-      //   for (let j = 0; j < dataCopy[i].weaknesses.length; j++) {
-      //     arrayFilter.push(dataCopy[i].weaknesses[j].toLowerCase());
-      //     if (arrayFilter[j].indexOf(dataFilter.toLowerCase())!==-1)
-      //       newArrayFilter.push(dataCopy[i]);
-      //   }
-      //   arrayFilter = [];
-      // }
+      newArrayFilter = dataCopy.filter(
+      element => element.height.toLowerCase().indexOf(dataFilter.toLowerCase())>-1);
+      break;
+    case 4:
+      newArrayFilter = dataCopy.filter(
+      element => element.weight.toLowerCase().indexOf(dataFilter.toLowerCase())>-1);
+      break;
+    case 5:
+      newArrayFilter = dataCopy.filter(
+      element => element.candy.toLowerCase().indexOf(dataFilter.toLowerCase())>-1);
+      break;
+    case 6:
+      newArrayFilter = dataCopy.filter(
+      element => element.egg.toLowerCase().indexOf(dataFilter.toLowerCase())>-1);
+      break;
+    case 7:
+      newArrayFilter = dataCopy.filter(
+      element => element.avg_spawns===parseInt(dataFilter));
+      break;
+    case 8:
+      newArrayFilter = dataCopy.filter(
+      element => element.spawn_time.indexOf(dataFilter)>-1);
+      break;
+    case 9:
       newArrayFilter = dataCopy.filter(
       element => element.weaknesses.filter(ele => ele.toLowerCase().indexOf(dataFilter.toLowerCase())>-1).length>0);
+      break;
+    case 10:
+      saveObject = filterNum(dataCopy,dataFilter);
+      newArrayFilter=Object.keys(saveObject[0]).map(element => {
+        if(element==='prev_evolution'){
+          //[object,object] =>object={name:---- ,img:----- }
+          return (saveObject[0].prev_evolution.map(element => {
+            const objectNew = {};
+            objectNew.name = filterNum(dataCopy,element.num)[0].name;
+            objectNew.img = filterNum(dataCopy,element.num)[0].img;
+            return objectNew;
+          }));
+        }
+      }).filter(element => element);
+      return newArrayFilter;
+      break;
+    case 11:
+      saveObject = filterNum(dataCopy,dataFilter);
+      newArrayFilter=Object.keys(saveObject[0]).map(element => {
+        if(element==='next_evolution'){
+          //[object,object] =>object={name:---- ,img:----- }
+          return (saveObject[0].next_evolution.map(element => {
+            const objectNew = {};
+            objectNew.name = filterNum(dataCopy,element.num)[0].name;
+            objectNew.img = filterNum(dataCopy,element.num)[0].img;
+            return objectNew;
+          }));
+        }
+      }).filter(element => element);
+      return newArrayFilter;
+      break;
+    case 12:
+      saveObject = filterNum(dataCopy,dataFilter);
+      Object.keys(saveObject[0]).map(element => {
+        if(element==='candy_count') newArrayFilter.push(saveObject[0]);
+        return 1;
+      })
       break;
     default: alert ('No existe opcion');
   }
