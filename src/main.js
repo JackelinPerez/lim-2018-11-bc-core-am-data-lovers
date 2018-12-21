@@ -30,41 +30,36 @@ goToPagDescarga.addEventListener("click", function(){
 const orderAs = document.getElementById("orderAs");
 const filterAs = document.getElementById("filterAs");
 
-const filterInArray = (inputArray,classlabel) =>{
+const filterInArray = (inputArray) =>{
   return inputArray.map(element => {
-    return `<label class="${classlabel}">${element}</label>`;
-  }).join();
+    return `<label>${element}</label><br>`;
+  }).join('');
 }
 
 const filterEvolution = (data_, arrayEvolution) =>{
-  let arrayAux;
   let stringLabelSrc=[];
-  let saveKeysObjectAux=Object.keys(arrayEvolution);
-  let objectArray;
-  let saveKeysObject;
+  let saveObjectPreEvolution = [];
+  let saveObjectNextEvolution = [];
 
-  let prev_next = saveKeysObjectAux.map(element => {
-    if(element==='prev_evolution'){
-      return arrayEvolution.prev_evolution.map( ele =>{
-        objectArray=data.filterData(data_,parseInt(ele.num),0);
-        stringLabelSrc.push(`<input type="image" src="${objectArray[0].img}" class="little"><br>
-                             <label class="evolution">${objectArray[0].name}</label><br>
-                            `);
-        return 1;
+  saveObjectPreEvolution = data.filterData(data_,arrayEvolution,10);
+  if(saveObjectPreEvolution) {
+    saveObjectPreEvolution.map(element => {
+      element.map(ele =>{
+        stringLabelSrc.push(`<input type="image" src="${ele.img}" class="show-img"><br>
+                             <label>Pre Evolucion: ${ele.name}</label><br>`);
       });
-    }
-    else if(element==='next_evolution'){
-      return arrayEvolution.next_evolution.map( ele =>{
-        objectArray=data.filterData(data_,parseInt(ele.num),0);
-        stringLabelSrc.push(`<input type="image" src="${objectArray[0].img} " class="little">
-                            <label class="evolution">${objectArray[0].name}</label>
-                            `);
-        return 0;
+    });
+  }
+  saveObjectNextEvolution = data.filterData(data_,arrayEvolution,11);
+  if(saveObjectNextEvolution) {
+    saveObjectNextEvolution.map(element =>{
+      element.map(ele => {
+        stringLabelSrc.push(`<input type="image" src="${ele.img}" class="show-img"><br>
+                               <label>Next Evolucion: ${ele.name}</label><br>`);
       });
-    }
-  });
-
-  return stringLabelSrc.join(' ');
+    });
+  }
+  return stringLabelSrc.join('');
 }
 
 const functionfilter =(dataInput)=>{
@@ -87,7 +82,7 @@ const functionfilter =(dataInput)=>{
       </a>
       <section id="openmodal${i}" class="modal-dialog">
         <section class="modal">
-    
+
         <div class="grid-container">
           <div class="item1">
           <label class="show-datletter"><strong>${data[i].name}</strong></label><br><br>
@@ -101,7 +96,7 @@ const functionfilter =(dataInput)=>{
           <input type="image" src="${data[i].img} " class="show-datimg" >
           <a href="#close" class="close">X</a>
           </div>
-          <div class="item3">${filterEvolution(POKEMON.pokemon, data[i])}</div>
+          <div class="item3">${filterEvolution(POKEMON.pokemon, data[i].num)}</div>
         </div>
 
         </section>
@@ -114,7 +109,7 @@ const functionfilter =(dataInput)=>{
 const functionListenFilterOrder = ()=>{
   const listenOrderAs = orderAs.options[orderAs.selectedIndex].value;
   const listenFilterAs = filterAs.options[filterAs.selectedIndex].value;
-  const arrayInputFilter = data.filterData(POKEMON.pokemon,textfilter.value,parseInt(listenFilterAs[0]));
+  const arrayInputFilter = data.filterData(POKEMON.pokemon,textfilter.value,parseInt(listenFilterAs));
 
   functionfilter(data.sortData(arrayInputFilter,parseInt(listenOrderAs[0]), parseInt(listenOrderAs[1])));
   return 1;

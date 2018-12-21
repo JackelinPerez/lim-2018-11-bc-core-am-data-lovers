@@ -43,11 +43,11 @@ h1{
   display: none;
 }
 label{
-  color: rgb(0, 0, 0);
+  color: rgb(255, 255, 255);
 }
 header label{
   display: none;
-  width: 30px;  
+  width: 30px;
   height: 30px;
   padding: 10px;
   border-right: 1px solid #fff;
@@ -127,11 +127,11 @@ cursor: pointer;
 .grid-ListFilter {
     display: grid;
     grid-row-gap: 20px;
-    grid-column-gap: 50px; 
+    grid-column-gap: 50px;
     grid-template-columns: repeat(3, 1fr);
     padding: auto;
   }
-  
+
  .grid-item {
     background-color: rgba(223, 219, 219, 0.8);
     border: 1px solid rgba(0, 0, 0, 0.8);
@@ -262,7 +262,7 @@ footer p{
 .top{
   border-top-left-radius: 30px;
   border-top-right-radius: 30px;
-  
+
 }
 .number{
   color: rgb(255, 255, 255);
@@ -286,7 +286,7 @@ footer p{
 }
 .show-img:focus{
   outline: none;
-} 
+}
 .type{
   color: rgb(27, 27, 27);
   font-family: Arial, Helvetica, sans-serif;
@@ -294,13 +294,13 @@ footer p{
   justify-content: center;
   font-weight: bold;
 }
-.item1 { 
-  grid-area: header; 
+.item1 {
+  grid-area: header;
 }
-.item2 { 
-  grid-area: main; 
+.item2 {
+  grid-area: main;
 }
-.item3 { 
+.item3 {
   grid-area: footer;
   display: flex;
 }
