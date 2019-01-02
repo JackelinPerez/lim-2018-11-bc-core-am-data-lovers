@@ -1,92 +1,53 @@
-# Data Lovers
+# Pokemon Go
 
 ## Índice
 
-* [Preámbulo](#preámbulo)
-* [Descripción](#resumen-del-proyecto)
-* [Consideraciones generales](#consideraciones-generales)
-* [Objetivos de aprendizaje](#objetivos-de-aprendizaje)
-* [Parte obligatoria](#parte-obligatoria)
-* [Parte opcional](#parte-opcional-hacker-edition)
-* [Consideraciones técnicas](#consideraciones-técnicas)
-* [Primeros pasos](#primeros-pasos)
-* [Contenido de referencia](#contenido-de-referencia)
-* [Checklist](#checklist)
+* [Introducción](#Introducción)
+* [Definición del Producto](#Definición-del-Producto)
+* [Historias de Usuario](#Historias-de-Usuario)
+* [Prototipo de baja fidelidad](#Prototipo-de-baja-fidelidad)
+* [Prototipo de alta fidelidad](#Prototipo-de-alta-fidelidad)
+* [Testeos de usabilidad](#Testeos-de-usabilidad)
 
 ***
+## Introducción
+**Pokemon Go** es un videojuego de aventura de realidad aumentada, creado por Niantic, Inc. para dispositivos iOS y Android.
+El juego consiste en buscar, capturar, y luchar con los personajes de la saga Pokémon, al mismo tiempo que refuerza la actividad física e interacción social, porque obliga a reuniones presenciales de los usuarios. 
+## Definición del Producto
 
-## Preámbulo
+* ¿Quiénes son los principales usuarios de producto?
 
-Según un [estudio de IBM](https://www-01.ibm.com/common/ssi/cgi-bin/ssialias?htmlfid=WRL12345USEN),
-el 90% de la data que existe hoy ha sido creada durante los últimos dos años.
-Cada día generamos 2.5 trillones de bytes de datos, una cifra sin precedentes.
+    Hombres y mujeres en sus 20´s que u
 
-No obstante, los datos por sí mismos son de poca utilidad. Para que esas
-grandes cantidades de datos se conviertan en **información** fácil de leer para
-los usuarios, necesitamos entender y procesar estos datos. Una manera simple de
-hacerlo es creando _interfaces_ y _visualizaciones_.
+* ¿Cuáles son los objetivos de estos usuarios en relación con tu producto?
+    El objetivo principal es la captura de los poke
+* ¿Cómo crees que el producto que estás creando está resolviendo sus problemas?
+## Historias de Usuario
 
-En la siguiente imagen, podrás ver cómo con la data que que se ve en la parte
-izquierda se puede construir una interfaz amigable y entendible por el usuario.
+### Historia 1
+YO COMO: Usuario de Pokemon Go.
 
-![json-interfaz](https://lh4.googleusercontent.com/Tn-RPXS26pVvOTdUzRT1KVaJ-_QbFs9SpcGLxSPE43fgbHaXtFgMUInuDt7kV41DkT1j8Tt29V0LxQW7SMtC6digOIhfTXSBKdwI08wUwhD3RAqlwy0hjfmhZ2BFe91mtmCSEqysfgk)
+QUIERO: Ver los a todos los Pokemon en la pantalla.
 
-\* Puedes ver el datalle de la data en este [link](https://gist.github.com/lalogf/dd4aa3017a9f8aa8f90dfbca382c4dc9#file-student-json)
-y la interfaz construida en este [link](https://app.talento.laboratoria.la/profile/HFOoMpOreBU2psCcjjLg5O2EWEv2).
+RESUELTO:
 
-## Resumen del proyecto
+### Historia 2
+YO COMO: Usuario de Pokemon Go.
 
-En este proyecto **construirás una _página web_ para visualizar un
-_conjunto (set) de datos_** que se adecúe a lo que descubras que tu usuario
-necesita.
+QUIERO: Poder filtrar a los Pokemon por:
+ * Nombre
+ * ID
+ * Tipo
+### Historia 3
+YO COMO: Usuario de Pokemon Go.
 
-Esta vez te proponemos una serie de datos de diferentes _temáticas_ para que
-explores y decidas con qué temática te interesa trabajar. Hemos elegido
-específicamente estos sets de datos porque creemos que se adecúan bien a esta
-etapa de tu aprendizaje.
+QUIERO: Que se ordenen de manera ascendente y descendente.
 
-Una vez que definas tu área de interés, entiende quién es tu usuario y qué
-necesita saber o ver exactamente; luego podrás construir la interfaz que le
-ayude a interactuar y entender mejor esos datos.
+### Historia 4
 
-Estos son datos que te proponemos:
+### Historia 5
 
-* Indicadores de desarrollo del Banco Mundial de alguno de estos países:
-  [Brasil](src/data/worldbank/brazil.json),
-  [Chile](src/data/worldbank/chile.json),
-  [México](src/data/worldbank/mexico.json) y
-  [Perú](src/data/worldbank/peru.json). Estos datos incluyen indicadores
-  demográficos, económicos y comerciales.
-* [Pokémon](src/data/pokemon/pokemon.json):
-  En este set encontrarás una lista con los 151 Pokémon de la región de Kanto,
-  junto con sus respectivas estadísticas usadas en el juego [Pokémon GO](pokemongolive.com).
-* [Steam noticias](src/data/steam/steam.json):
-  Lista noticias relacionadas a los videojuegos presentes en la
-  plataforma de [Steam](https://store.steampowered.com/).
-* [League of Legends - Challenger leaderboard](src/data/lol/lol.json):
-  Este set de datos muestra la lista de jugadores en una liga del
-  juego League of Legends (LoL), puedes revisar la documentación de su API en
-  este [link](https://developer.riotgames.com/api-methods/).
-* [Personas heridas por medio de transporte en EEUU](src/data/injuries/injuries.json).
-  Este set nos muestra el número de personas heridas en accidentes de
-  transporte, con data anual desde 1960 y categorizada por tipo de transporte
-  (aire, barco, automóvil, moto, bicileta, ...).
-
-Como entregable final tendrás una página web que permita **visualizar la data,
-filtrarla, ordenarla y hacer algún calculo agregado**. Como aclaración,
-con cálculo agregado nos referimos a distintos cálculos que puedes hacer con
-la data que tienes para mostrar información aún más relevante a los usuarios.
-Una opción serían cálculos estadísticos como el promedio, el máximo o el mínimo,
-por ejemplo, si tenemos una colección que representa a un grupo de personas,
-y cada persona está representada como un _objeto_ con una _propiedad_ `altura`,
-podríamos elegir calcular la altura promedio en el grupo entre otras cosas.
-
-Cada set de datos tiene una identidad gráfica que deberás utilizar en la
-interfaz. La identidad gráfica; o también conocido como guía de estilos en
-diseño, de cada set la podrás encontrar en el siguiente
-[link](https://drive.google.com/open?id=1eeWFqrWpy-OYOH4EHDckFGunyrm9iNeE).
-
-## Consideraciones generales
+## Prototipo de baja fidelidad
 
 * Este proyecto se debe resolver en duplas.
 * El proyecto será entregado subiendo tu código a GitHub (commit/push) y la
@@ -95,7 +56,7 @@ diseño, de cada set la podrás encontrar en el siguiente
   primer Sprint (una semana) y al  final, decide en cuántas semanas lo
   terminarás.
 
-## Objetivos de aprendizaje
+## Prototipo de alta fidelidad
 
 El objetivo principal de este proyecto es que aprendas a diseñar y construir una
 interfaz web donde se pueda visualizar y manipular data, entendiendo lo que el
