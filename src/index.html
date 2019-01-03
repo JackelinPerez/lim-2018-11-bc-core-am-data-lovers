@@ -15,7 +15,7 @@
           <ul>
             <li><a id="pp1"><img src="icon-house.png" class="in-line" alt="Inicio">Inicio</a></li>
             <li><a id="pp2"><img src="img-pokedex.png" class="in-line" alt="Pokedex">Pokedex</a></li>
-            <li><a id="pp3"><img src="img-est.png" class="in-line" alt="Estadísticas">Estadísticas</a></li>
+            <li><a id="pp3"><img src="img-est.png" class="in-line" alt="Estadísticas">Top Pokemon</a></li>
           </ul>
         </nav>
     </header>
@@ -28,8 +28,8 @@
             para dispositivos iPhone y Android. Con Pokémon GO descubrirás Pokémon en
             un mundo completamente nuevo, ¡tu propio mundo! Pokémon GO te da la oportunidad
             de explorar lugares reales y de buscar Pokémon por todos lados. Más y más Pokémon
-            siguen apareciendo por todo el mundo, incluyendo Pokémon legendarios raros y poderosos.</p>
-          <p>A medida que te muevas por el lugar donde vives y los sitios que visites, tu smartphone
+            siguen apareciendo por todo el mundo, incluyendo Pokémon legendarios raros y poderosos.
+            A medida que te muevas por el lugar donde vives y los sitios que visites, tu smartphone
             podrá vibrar para hacerte saber que estás cerca de un Pokémon. Una vez que te hayas encontrado
             con un Pokémon, apunta en la pantalla táctil de tu smartphone y lanza una Poké Ball para
             atraparlo, ¡pero ten cuidado, porque podría salir huyendo! También puedes buscar Poképaradas
@@ -43,36 +43,97 @@
       </div>
       <div id="pokedex" class="pokedexp">
         <h1>Pokédex</h1>
-            <form>
-              <div class="centerup">
-                <input id="textfilter" type= "text" size="20" class="box" name="text">
+          <div class="menu-red">
+            <div>
+              <h4>Nombre o Número:</h4>
+            </div>
+                <input id="textfilter" class="search" type= "text" size="20" class="box" name="text">
                 <label for="textfilter" id="buttonSearch" class="lens"><strong>GO!</strong></label>
-              </div>
-              <div class="down">
-                
-                <select id="filterAs" class="filter-one box">
-                    <option value="1" selected>Nombre</option>
-                    <option value="0">ID</option>
-                    <option value="2">Tipo</option>
+            <div>
+              <h4>Filtrar:</h4>
+            </div>
+            <div>
+                <select class="select-menu" id="type-pokemon">
+                    <option disabled selected>Por tipo</option>
+                    <option value="Water">Agua</option>
+                    <option value="Bug">Bicho</option>
+                    <option value="Dragon">Dragón</option>
+                    <option value="Electric">Eléctrico</option>
+                    <option value="Ghost">Fantasma</option>
+                    <option value="Fire">Fuego</option>
+                    <option value="Ice">Hielo</option>
+                    <option value="Fighting">Lucha</option>
+                    <option value="Normal">Normal</option>
+                    <option value="Grass">Hierba</option>
+                    <option value="Psychic">Psíquico</option>
+                    <option value="Rock">Roca</option>
+                    <option value="Ground">Tierra</option>
+                    <option value="Poison">Veneno</option>
+                    <option value="Flying">Volador</option>
+                  </select>
+            </div>
+            <div>
+                <select class="select-menu" id="weaknesses-pokemon">
+                     <option disabled selected>Por debilidad</option>
+                     <option value="Water">Agua</option>
+                     <option value="Bug">Bicho</option>
+                     <option value="Dragon">Dragón</option>
+                     <option value="Electric">Eléctrico</option>
+                     <option value="Ghost">Fantasma</option>
+                     <option value="Fire">Fuego</option>
+                     <option value="Ice">Hielo</option>
+                     <option value="Fighting">Lucha</option>
+                     <option value="Normal">Normal</option>
+                     <option value="Grass">Hierba</option>
+                     <option value="Psychic">Psíquico</option>
+                     <option value="Rock">Roca</option>
+                     <option value="Ground">Tierra</option>
+                     <option value="Poison">Veneno</option>
+                     <option value="Flying">Volador</option>
                 </select>
-                
-                <select id="orderAs" class="filter-two box">
+            </div>
+            <div>
+                <select  class="select-menu" id="eggs-pokemon">
+                    <option disabled selected>Por Huevo</option>
+                    <option value="Not in Eggs">No en huevo</option>
+                    <option value="2 km">Huevo 2 km</option>
+                    <option value="5 km">Huevo 5 km</option>
+                    <option value="10 km">Huevo 10 km</option>
+                  </select>
+            </div>
+
+            <div>
+              <h4>Ordenar:</h4>
+            </div>
+            <div>
+                <select class="select-menu" id="orderAs">
                     <option value="00">ID ascendente</option>
                     <option value="01">ID descendente</option>
                     <option value="10">A-Z</option>
                     <option value="11">Z-A</option>
                 </select>
-              </div>
-            </form>
-            <div id="viewListFilter" class="grid-ListFilter contenedor">
-
-
-
             </div>
+          </div>
+          <div id="viewListFilter" class="grid-ListFilter contenedor">
+
+
+
+          </div>
       </div>
       <div id= "descarga" class="descargap">
-        <h1>Estadísticas</h1>
-
+        <h1>Top Pokemon</h1>
+          <div class="menu-red">
+          <div>
+              <h4>Filtrar:</h4>
+          </div>
+          <div>
+            <select class="select-menu" id="compute">
+              <option value="frecuentes">Más frecuentes</option>
+              <option value="difíciles">Menos frecuentes</option>
+              <option value="legendarios">Legendarios</option>
+            </select>
+          </div>
+        </div>
       </div>
     </main>
     <footer>
