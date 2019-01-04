@@ -46,13 +46,11 @@
           <div class="menu-red">
             <div>
               <h4>Nombre o Número:</h4>
-            </div>
-                <input id="textfilter" class="search box" type= "text" size="20" name="text">
+                <input id="textfilter" class="search" type= "text" size="20" name="text">
                 <label for="textfilter" id="buttonSearch" class="lens"><strong>GO!</strong></label>
+            </div>
             <div>
               <h4>Filtrar:</h4>
-            </div>
-            <div>
                 <select class="select-menu" id="type-pokemon">
                     <option value="Tipo">Por Tipo</option>
                     <option value="Agua">Agua</option>
@@ -70,9 +68,8 @@
                     <option value="Fantasma">Fantasma</option>
                     <option value="Normal">Normal</option>
                     <option value="Dragon">Dragon</option>
-                  </select>
-            </div>
-            <div>
+                </select>
+
                 <select class="select-menu" id="weaknesses-pokemon">
                     <option value="Debilidad">Debilidad</option>
                     <option value="Agua">Agua</option>
@@ -90,9 +87,8 @@
                     <option value="Fantasma">Fantasma</option>
                     <option value="Normal">Normal</option>
                     <option value="Dragon">Dragon</option>
-                  </select>
-            </div>
-            <div>
+                </select>
+
                 <select  class="select-menu" id="eggs-pokemon">
                     <option value="Huevos">Huevos</option>
                     <option value="2 km">2 km</option>
@@ -104,8 +100,6 @@
 
             <div>
               <h4>Ordenar:</h4>
-            </div>
-            <div>
                 <select class="select-menu" id="orderAs">
                     <option value="00">ID ascendente</option>
                     <option value="01">ID descendente</option>
@@ -123,17 +117,34 @@
       <div id= "descarga" class="descargap">
         <h1>Top Pokemon</h1>
           <div class="menu-red">
-          <div>
-              <h4>Filtrar:</h4>
+            <div>
+                <h4>Rango por Frecuencia</h4>
+                <p>La frecuencia es clasificada según el su número de
+                    avistamientos, pero también existen Pokemon
+                    “raros”, los cuales podrás capturar solo en
+                    eventos, dentro de esta categoría se encuentran 
+                    los denominados Pokemon Legendarios.</p>
+              <select class="select-menu" id="compute">
+                <option value="frecuentes">Más frecuentes</option>
+                <option value="difíciles">Menos frecuentes</option>
+                <option value="legendarios">Legendarios</option>
+              </select>
+            </div>
           </div>
-          <div>
-            <select class="select-menu" id="compute">
-              <option value="frecuentes">Más frecuentes</option>
-              <option value="difíciles">Menos frecuentes</option>
-              <option value="legendarios">Legendarios</option>
-            </select>
+          <div class="menu-red right">
+            <div>
+                <h4>Calcula tu CP final</h4>
+            </div>
+            <div>
+              <p>Nombre:</p>
+              <input id="enterPokemon" class="search box" type= "text" size="20" name="text">
+            </div>
+            <div>
+              <p>Tu CP:</p>
+              <input id="enterCP" class="search box" type= "text" size="20" name="text">
+              <input id="resultCP" type="submit" class="lens" value="START">
+            </div>
           </div>
-        </div>
       </div>
     </main>
     <footer>
