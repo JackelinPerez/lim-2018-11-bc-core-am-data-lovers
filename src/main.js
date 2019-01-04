@@ -38,7 +38,7 @@ goToPagDescarga.addEventListener('click', () => {
 
 const filterInArray = (inputArray, classlabel) => {
   return inputArray.map(element => {
-    return `<label class="${classlabel}">${element}</label>`;
+    return `<label class="${classlabel}">${element}</label><br>`;
   }).join('');
 };
 
@@ -52,7 +52,7 @@ const filterEvolution = (data_, arrayEvolution) => {
     saveObjectPreEvolution.map(element => {
       element.map(ele => {
         stringLabelSrc.push(`<input type="image" src="${ele.img}" class="little"><br>
-                             <label class="evolution">Pre Evolucion: ${ele.name}</label>`);
+                             <label class="evolution">Pre Evolucion: ${ele.name}</label><br>`);
       });
     });
   }
@@ -62,7 +62,7 @@ const filterEvolution = (data_, arrayEvolution) => {
     saveObjectNextEvolution.map(element => {
       element.map(ele => {
         stringLabelSrc.push(`<input type="image" src="${ele.img}" class="little"><br>
-                               <label class="evolution">Next Evolucion: ${ele.name}</label>`);
+                               <label class="evolution">Next Evolucion: ${ele.name}</label><br>`);
       });
     });
   }
@@ -97,9 +97,9 @@ const functionfilter = (dataInput) => {
           <label class="show-datletter">-N° ${element.num}</label><br>
           <label class="show-datletter">-Altura: ${element.height}</label><br>
           <label class="show-datletter">-Peso: ${element.weight}</label><br>
-          <label class="show-datletter">-Tipo:
+          <label class="show-datletter">-Tipo:<br>
           ${filterInArray(element.type, 'show-datletter')}</label><br>
-          <label class="show-datletter">-Debilidad:
+          <label class="show-datletter">-Debilidad:<br>
           ${filterInArray(element.weaknesses, 'show-datletter')}</label><br>
           </div>
           <div class="item2">
@@ -187,3 +187,36 @@ const functionMain = () => {
 };
 
 functionMain();
+
+
+// const computeStatsFunction = (condition) => {
+//   let avPromedio;
+//
+//   const obj = POKEMON.pokemon.map(function (elemento) {
+//     return elemento.avg_spawns;
+//   });
+//
+//   const avgSpawns = obj.reduce((a, b) => {
+//     return a + b;
+//   });
+//
+//   const meanSpawns = avgSpawns / obj.length;
+//
+//     avPromedio=  POKEMON.pokemon.filter ( elemento => {
+//       switch (condition) {
+//     case 1:
+//         return elemento.avg_spawns > meanSpawns;
+//         break;
+//     case 2:
+//         return elemento.avg_spawns !== 0 && elemento.avg_spawns < meanSpawns;
+//         break;
+//     default:
+// 		    return elemento.avg_spawns === 0;
+// 	}
+//     });
+//   return avPromedio;
+// }
+//
+// console.log('caso 1 '+ computeStatsFunction(1));
+// console.log('caso 2 '+ computeStatsFunction(2));
+// console.log('caso 3 '+ computeStatsFunction(3));
