@@ -1,5 +1,7 @@
-const textfilter = document.getElementById('textfilter');
+const inputPokeIDName = document.getElementById('inputPokeIDName');
+const listPokeIDName = document.getElementById('listPokeIDName');
 const buttonSearch = document.getElementById('buttonSearch');
+
 const viewListFilter = document.getElementById('viewListFilter');
 const viewListStatistic = document.getElementById('viewListStatistic');
 const viewPCM = document.getElementById('viewPCM');
@@ -22,6 +24,15 @@ const pag3 = document.getElementById('topstats');
 const goToPagInicio = document.getElementById('pp1');
 const goToPagPokedex = document.getElementById('pp2');
 const goToPagStats = document.getElementById('pp3');
+
+const searchPokemonIDName = (data) => {
+    let createDataList = [];
+    data.forEach((ele, index) => {
+      createDataList.push(`<option value='${ele.name}'>${ele.num}</option>`);
+    });
+    listPokeIDName.innerHTML = createDataList.join('');
+    return 1;
+  };
 
 const filterInArray = (inputArray, classlabel) => {
   return inputArray.map(element => {
@@ -152,12 +163,20 @@ const functionMain = () => {
 
     saveArrayObjectFilter = functionListenFilterOrder(dataFSO, 0);
     functionfilter(saveArrayObjectFilter, viewListFilter);
+    searchPokemonIDName(saveArrayObjectFilter);
 
     orderAs.addEventListener('change', () => {
       functionfilter(functionListenOrder(saveArrayObjectFilter), viewListFilter);
     });
     buttonSearch.addEventListener('click', () => {
-      dataFSO = textfilter.value;
+      listPokeIDName.childNodes.forEach((ele) => {
+        if (ele.value === inputPokeIDName.value) {
+          dataFSO = ele.value;
+        }
+        else {
+          dataFSO = inputPokeIDName.value;
+        }
+      });
       saveArrayObjectFilter = functionListenFilterOrder(dataFSO, detectLetterNum(dataFSO));
       functionfilter(saveArrayObjectFilter, viewListFilter);
       if (saveArrayObjectFilter.length === 0)
@@ -167,7 +186,7 @@ const functionMain = () => {
       orderAs.selectedIndex = 0;
       filterAsEgg.selectedIndex = 0;
       filterAsWeaknesses.selectedIndex = 0;
-      textfilter.value = '';
+      inputPokeIDName.value = '';
       dataFSO = filterAsType.options[filterAsType.selectedIndex].value;
       saveArrayObjectFilter = functionListenOrder(functionListenFilter(dataFSO, 2));
       functionfilter(saveArrayObjectFilter, viewListFilter);
@@ -176,7 +195,7 @@ const functionMain = () => {
       orderAs.selectedIndex = 0;
       filterAsEgg.selectedIndex = 0;
       filterAsType.selectedIndex = 0;
-      textfilter.value = '';
+      inputPokeIDName.value = '';
       dataFSO = filterAsWeaknesses.options[filterAsWeaknesses.selectedIndex].value;
       saveArrayObjectFilter = functionListenOrder(functionListenFilter(dataFSO, 9));
       functionfilter(saveArrayObjectFilter, viewListFilter);
@@ -185,7 +204,7 @@ const functionMain = () => {
       orderAs.selectedIndex = 0;
       filterAsType.selectedIndex = 0;
       filterAsWeaknesses.selectedIndex = 0;
-      textfilter.value = '';
+      inputPokeIDName.value = '';
       dataFSO = filterAsEgg.options[filterAsEgg.selectedIndex].value;
       saveArrayObjectFilter = functionListenOrder(functionListenFilter(dataFSO, 6));
       functionfilter(saveArrayObjectFilter, viewListFilter);
