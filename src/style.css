@@ -5,19 +5,19 @@
 .pokedexp{
     display:none;
 }
-.descargap{
+.statsp{
     display:none;
 }
 body{
   margin: 0;
   font-family: sans-serif;
-  background: url("fondo.jpg");
+  background: url("img/fondo.jpg");
   background-attachment: fixed;
   z-index: 100;
 }
 header{
   width: 100%;
-  background: rgb(70, 69, 69);
+  background: rgb(105, 105, 105);
   font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
   box-shadow: 1px 1px 3px #000;
 }
@@ -25,7 +25,7 @@ main{
   background: #fff;
   padding: 20px;
 }
-section{
+.incio-page{
   float: left;
   width: 60%;
   padding-right: 10px;
@@ -93,21 +93,58 @@ img.in-line{
   overflow: hidden;
   text-justify: auto;
  }
+.slider{
+  width: 60%;
+  float: right;
+  padding-top: 0px;
+  overflow: hidden;
+}
+.slider ul{
+  display: flex;
+  padding: 0;
+  width: 400%;
+  animation: cambio 10s infinite alternate;
+}
+.slider li{
+  width: 100%;
+  list-style: none;
+}
+.slider img{
+  width: 100%;
+}
+@keyframes cambio{
+  0% {margin-left:0;}
+  20% {margin-left:0;}
+
+  25% {margin-left:-100%;}
+  45% {margin-left:-100%;}
+
+  50% {margin-left:-200%;}
+  70% {margin-left:-200%;}
+
+  75% {margin-left:-300%;}
+  100% {margin-left:-300%;}
+}
 .menu-red{
-  width: 300px;
-  height: 300px;
+  width: 30%;
+  height: auto;
   background: #F80C0C;
   box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
   border-radius: 20px;
   text-align: center;
   padding: 20px;
 }
-.right{
-  position: absolute;
-  top: 235px;
-  right: 200px;
+#menu-red-right{
+  float: right;
+  width: 25%;
 }
-
+#menu-red-left{
+  float: left;
+  width: 65%;
+}
+.left{
+float: left;
+}
 h4{
   color: #fff;
   text-align: start;
@@ -168,6 +205,13 @@ p{
     grid-template-columns: repeat(3, 1fr);
     padding: auto;
   }
+  .grid-ListFilterStats {
+    display: grid;
+    grid-row-gap: 20px;
+    grid-column-gap: 5px;
+    grid-template-columns: repeat(3, 1fr);
+    padding: auto;
+  }
 
 .grid-item {
     background-color: rgba(223, 219, 219, 0.8);
@@ -179,58 +223,12 @@ p{
     border-radius: 10px;
     color: rgb(0, 0, 0);
   }
-  @media all and (max-width: 768px){
-    .grid-ListFilter{
-      grid-template-columns: repeat(1, 1fr);
-    }
-    header label{
-    display: block;
-    }
-    .menu {
-    position: absolute;
-    background: rgb(70, 69, 69);
-    width: 70%;
-    margin-left: -70%; /*como es negativo se sale del pantalla*/
-    transition: all 0.5s;
-    }
-    .menu ul{
-    flex-direction: column;
-    }
-    .menu li {
-    border-top: 1px   solid #fff;
-    }
-    #btn-menu:checked~.menu{
-    margin-left:0;
-    }
-    section{
-      width: 100%;
-    }
-    aside{
-      width: 100%;
-      text-align: center;
-    }
-  }
-footer{
-  width: 100%;
-  height: 130px;
-  background: rgb(70, 69, 69);
-  color: #fff;
-  padding-top: 20px;
-}
-.social-bar{
-  background: rgb(95, 95, 95);
-  width: 100%;
-  text-align: center;
-}
-footer p{
-  padding-top: 10px;
-  text-align: center;
-}
 /* Ventana Modal */
 .open{
 	color: rgb(0, 0, 0);
 	font-size: 15px;
-	margin: 20px;
+  margin: 20px;
+  padding: 10px 20px;
 	text-decoration: none;
 	transition:background-color 1s;
 }
@@ -272,17 +270,12 @@ footer p{
 	border-radius: 5px;
 	color: #fff;
 	margin: 10% auto;
-	padding: 20px;
+  padding: 20px;
 	position: relative;
     width: 600px;
     height: 400px;
 }
 /* Final de Ventana Modal */
-.top{
-  border-top-left-radius: 30px;
-  border-top-right-radius: 30px;
-
-}
 .number{
   color: rgb(255, 255, 255);
   font-family: Arial, Helvetica, sans-serif;
@@ -313,64 +306,135 @@ footer p{
   justify-content: center;
   font-weight: bold;
 }
-.item1 {
-  grid-area: header;
+.item1 { grid-area: header; }
+.item2 { grid-area: men; }
+.item3 { 
+  grid-area: main; 
+  display: flex;
+  flex-wrap: wrap;
 }
-.item2 {
-  grid-area: main;
-}
-.item3 {
+.item5 { 
   grid-area: footer;
-  align-self: flex-end;
 }
 
 .grid-container {
   display: grid;
   grid-template-areas:
-    'header header header header main main'
-    'header header header header main main'
-    'header header header header footer footer';
-  grid-gap: 5px;
-  background-color: #111;
+    'header header header header header header'
+    'men footer footer footer footer footer'
+    'men main main main main main';
+  grid-gap: 1px;
+  background-color: rgb(0, 0, 0);
   padding: 0px;
 }
 
 .grid-container > div {
-  background-color: #111;
-  padding: 0;
+  background-color: rgba(255, 255, 255, 0.8);
+  text-align: center;
+  padding: 2px 0;
   font-size: 30px;
 }
-.show-datimg{
-  margin-top: 20px;
-  margin-right: 20px;
-  padding: 40px;
-  float: right;
-  background: #fff;
-}
-.little1{
-  background: #fff;
-  height: 90px;
-  width: 90px;
-}
-.little2{
-  background: #fff;
-  height: 90px;
-  width: 90px;
-}
-.pevolution{
-  color:white;
-  font-family: Arial, Helvetica, sans-serif;
-  font-size: 15px;
-
+.little{
+  height: 180px;
+  width: 20px;
+  margin-left: 20px;
+  margin-right: 100px;
 }
 .evolution{
-  color:white;
   font-family: Arial, Helvetica, sans-serif;
   font-size: 15px;
+  text-align: center;
+  color: rgb(32, 32, 32);
 }
 .show-datletter{
-  color:white;
+  color:rgb(32, 32, 32);
   font-family: Arial, Helvetica, sans-serif;
   font-size: 20px;
   text-align: start;
+}
+footer{
+width: 100%;
+height: 130px;
+background: rgb(70, 69, 69);
+color: #fff;
+padding-top: 20px;
+}
+.social-bar{
+background: rgb(95, 95, 95);
+width: 100%;
+text-align: center;
+}
+footer p{
+padding-top: 10px;
+text-align: center;
+}
+@media all and (max-width: 768px){
+  main{
+    margin: auto;
+   width: 100%;
+  }
+  .grid-ListFilter{
+    grid-row-gap: 10px;
+    grid-column-gap: 1px;
+    grid-template-columns: repeat(1, 1fr);
+  }
+  .grid-ListFilterStats{
+    grid-row-gap: 10px;
+    grid-column-gap: 1px;
+    grid-template-columns: repeat(1, 1fr);
+  }
+  header label{
+  display: block;
+  }
+  .menu {
+  position: absolute;
+  background: rgb(70, 69, 69);
+  width: 70%;
+  margin-left: -70%; /*como es negativo se sale del pantalla*/
+  transition: all 0.5s;
+  }
+  .menu ul{
+  flex-direction: column;
+  }
+  .menu li {
+  border-top: 1px   solid #fff;
+  }
+  #btn-menu:checked~.menu{
+  margin-left:0;
+  }
+  .incio-page{
+    width: 100%;
+  }
+  section img{
+    display: none;
+  }
+  aside{
+    width: 100%;
+    text-align: center;
+  }
+  .open{
+    color: rgb(0, 0, 0);
+    font-size: 15px;
+    margin: 20px;
+    padding: 10px 20px;
+  }
+  .modal{
+    width: 400px;
+    height: 420px;
+  }
+  .slider{
+    display: none;
+  }
+  .menu-red{
+    width: 90%;
+  }
+  #menu-red-right{
+    float: left;
+    margin-top: 10px;
+    width: 90%;
+  }
+  #menu-red-left{
+    float: left;
+    width: 90%;
+  }
 }

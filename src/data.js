@@ -12,6 +12,7 @@ const filterData = (data, dataFilter, condition) => {
   let dataCopy = [];
   let newArrayFilter = [];
   let saveObject = [];
+  let promMultipliers = 0;
 
   data.forEach((element) => {
     dataCopy.push(Object.assign({}, element));
@@ -51,7 +52,7 @@ const filterData = (data, dataFilter, condition) => {
     break;
   case 7:
     newArrayFilter = dataCopy.filter(
-      element => element.avg_spawns === parseInt(dataFilter));
+      element => element.avg_spawns === dataFilter);
     break;
   case 8:
     newArrayFilter = dataCopy.filter(
@@ -64,42 +65,59 @@ const filterData = (data, dataFilter, condition) => {
     break;
   case 10:
     saveObject = filterNum(dataCopy, dataFilter);
-    newArrayFilter = Object.keys(saveObject[0]).map(element => {
-      if (element === 'prev_evolution') {
-        // [object,object] =>object={name:---- ,img:----- }
-        return (saveObject[0].prev_evolution.map(element => {
-          const objectNew = {};
-          objectNew.name = filterNum(dataCopy, element.num)[0].name;
-          objectNew.img = filterNum(dataCopy, element.num)[0].img;
-          return objectNew;
-        }));
-      }
-    }).filter(element => element);
+    if (saveObject.length !== 0) {
+      newArrayFilter = Object.keys(saveObject[0]).map(element => {
+        if (element === 'prev_evolution') {
+          // [object,object] =>object={name:---- ,img:----- }
+          return (saveObject[0].prev_evolution.map(element => {
+            const objectNew = {};
+            objectNew.num = filterNum(dataCopy, element.num)[0].num;
+            objectNew.name = filterNum(dataCopy, element.num)[0].name;
+            objectNew.img = filterNum(dataCopy, element.num)[0].img;
+            return objectNew;
+          }));
+        }
+      }).filter(element => element);
+    }
     break;
   case 11:
     saveObject = filterNum(dataCopy, dataFilter);
-    newArrayFilter = Object.keys(saveObject[0]).map(element => {
-      if (element === 'next_evolution') {
-        // [object,object] =>object={name:---- ,img:----- }
-        return (saveObject[0].next_evolution.map(element => {
-          const objectNew = {};
-          objectNew.name = filterNum(dataCopy, element.num)[0].name;
-          objectNew.img = filterNum(dataCopy, element.num)[0].img;
-          return objectNew;
-        }));
-      }
-    }).filter(element => element);
+    if (saveObject.length !== 0) {
+      newArrayFilter = Object.keys(saveObject[0]).map(element => {
+        if (element === 'next_evolution') {
+          // [object,object] =>object={name:---- ,img:----- }
+          return (saveObject[0].next_evolution.map(element => {
+            const objectNew = {};
+            objectNew.num = filterNum(dataCopy, element.num)[0].num;
+            objectNew.name = filterNum(dataCopy, element.num)[0].name;
+            objectNew.img = filterNum(dataCopy, element.num)[0].img;
+            return objectNew;
+          }));
+        }
+      }).filter(element => element);
+    }
     break;
   case 12:
     saveObject = filterNum(dataCopy, dataFilter);
-    Object.keys(saveObject[0]).map(element => {
-      if (element === 'candy_count') newArrayFilter.push(saveObject[0]);
-      return 1;
-    });
+    if (saveObject.length !== 0) {
+      newArrayFilter = Object.keys(saveObject[0]).map(element => {
+        if (element === 'multipliers' && saveObject[0].multipliers !== null) {
+          promMultipliers = saveObject[0].multipliers.reduce((primer, segundo) => {
+            return primer + segundo;
+          }) / saveObject[0].multipliers.length;
+          const objectNew = {};
+          objectNew.name = saveObject[0].name;
+          objectNew.num = saveObject[0].num;
+          objectNew.img = saveObject[0].img;
+          objectNew.multipliers = promMultipliers;
+          return objectNew;
+        }
+        return 0;
+      }).filter(element => element);
+    }
     break;
   default: alert('No existe Pokemon con dichas especificaciones!');
   }
-
   return newArrayFilter;
 };
 
@@ -132,23 +150,35 @@ const sortData = (data, sortBy, sortOrder) => {
   return newArrayFilter;
 };
 
-const computeStats = (data, condition) => {
-  let avPromedio;
-  const obj = data.map(elemento => elemento.avg_spawns);
-  const avgSpawns = obj.reduce((a, b) => a + b);
+const computeStats = (data, condition, pokemonSearch, cpInput) => {
+  let avProm;
+  const obj = data.map(element => element.avg_spawns);
+  const avgSpawns = obj.reduce((firstElement, secondElement) => firstElement + secondElement);
   const meanSpawns = avgSpawns / obj.length;
-
-  avPromedio = data.filter(elemento => {
+  let cpMax = {};
+  avProm = data.filter(element => {
     switch (condition) {
     case 1:
-      return elemento.avg_spawns > meanSpawns;
+      return element.avg_spawns > meanSpawns;
     case 2:
-      return elemento.avg_spawns !== 0 && elemento.avg_spawns < meanSpawns;
-    default:
-      return elemento.avg_spawns === 0;
+      return element.avg_spawns !== 0 && element.avg_spawns < meanSpawns;
+    case 3:
+      return element.avg_spawns === 0;
     }
   });
-  return avPromedio;
+  if (condition === 4) {
+    if (filterData(data, pokemonSearch, 12).length > 0) {
+      const saveObjectMultipliers = filterData(data, pokemonSearch, 12)[0];
+      cpMax.CPProm = Math.round(saveObjectMultipliers.multipliers * cpInput);
+      filterData(data, pokemonSearch, 11).forEach((ele) => {
+        cpMax.img = ele[0].img;
+        cpMax.name = ele[0].name;
+        cpMax.num = ele[0].num;
+      });
+      return cpMax;
+    } else return 0;
+  }
+  return avProm;
 };
 window.data = {
   filterNum,
