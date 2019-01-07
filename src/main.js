@@ -215,7 +215,7 @@ const functionMain = () => {
                             <label class="number top">N° ${objCPM.num}</label>
                             <label class="letter">${objCPM.name}</label>
                           </div>
-                          <label>Su CPM será: ${objCPM.CPProm}</label>
+                          <div class="result"><label>Su CPM será: ${objCPM.CPProm}</label></div>
                         </a>`);
           viewPCM.innerHTML = outputCPM.join('');
         } else labelResultCP.innerHTML = 'Tu pokemon llego al limite en CP';
