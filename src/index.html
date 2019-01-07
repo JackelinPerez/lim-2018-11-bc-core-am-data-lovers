@@ -10,12 +10,12 @@
   <body>
     <header>
         <input type="checkbox" id="btn-menu">
-        <label for="btn-menu"><img src="img-menu.png" alt="Menú"></label>
+        <label for="btn-menu"><img src="img/img-menu.png" alt="Menú"></label>
         <nav class="menu">
           <ul>
-            <li><a id="pp1"><img src="icon-house.png" class="in-line" alt="Inicio">Inicio</a></li>
-            <li><a id="pp2"><img src="img-pokedex.png" class="in-line" alt="Pokedex">Pokedex</a></li>
-            <li><a id="pp3"><img src="img-est.png" class="in-line" alt="Estadísticas">Top Pokemon</a></li>
+            <li><a id="pp1"><img src="img/icon-house.png" class="in-line" alt="Inicio">Inicio</a></li>
+            <li><a id="pp2"><img src="img/img-pokedex.png" class="in-line" alt="Pokedex">Pokedex</a></li>
+            <li><a id="pp3"><img src="img/img-est.png" class="in-line" alt="Estadísticas">Top Pokemon</a></li>
           </ul>
         </nav>
     </header>
@@ -23,30 +23,30 @@
       <script src="./data/pokemon/pokemon.js"></script>
       <div id= "inicio" class="iniciop">
         <section class="incio-page">
-          <h1>Pokémon Go</h1>
-          <p>Viaja entre el mundo real y el mundo virtual de Pokémon con Pokémon GO,
-            para dispositivos iPhone y Android. Con Pokémon GO descubrirás Pokémon en
-            un mundo completamente nuevo, ¡tu propio mundo! Pokémon GO te da la oportunidad
-            de explorar lugares reales y de buscar Pokémon por todos lados. Más y más Pokémon
-            siguen apareciendo por todo el mundo, incluyendo Pokémon legendarios raros y poderosos.
-            A medida que te muevas por el lugar donde vives y los sitios que visites, tu smartphone
-            podrá vibrar para hacerte saber que estás cerca de un Pokémon. Una vez que te hayas encontrado
-            con un Pokémon, apunta en la pantalla táctil de tu smartphone y lanza una Poké Ball para
-            atraparlo, ¡pero ten cuidado, porque podría salir huyendo! También puedes buscar Poképaradas
-            situadas en lugares interesantes, como instalaciones de arte, puntos históricos y monumentos
-            públicos, donde puedes recoger más Poké Balls y otros objetos.</p>
+          <h1>Pokémon Go: Seeker!</h1>
+          <p>Viaja entre el mundo real y el mundo virtual de Pokémon con Pokémon GO.
+            Con Pokémon GO descubrirás Pokémon en un mundo completamente nuevo,
+            ¡tu propio mundo! Pokémon GO te da la oportunidad
+            de explorar lugares reales y de buscar Pokémon por todos lados.
+            Más y más Pokémon siguen apareciendo por todo el mundo, incluyendo Pokémon legendarios raros y poderosos.
+            Son demasiados! Pero descuida, "Pokémon: Seeker!" te ayudará a conocer a todos los Pokémon, cual
+          cuales de ellos podrás atrapar más rápido e incluso podráscalcular tu CP final.</p>
+          <img src="img/banner.jpg" alt="banner">
         </section>
         <aside>
-            <a href="https://play.google.com/store/apps/details?id=com.nianticlabs.pokemongo" class="img-aside" target="_blank"><img src="app-store.jpg" alt="App Store"></a>
-            <a href="https://itunes.apple.com/es/app/pokemon-go/id1094591345?mt=8" class="img-aside" target="_blank"><img src="google-play.jpg" alt="Google Play"></a>
+            <a href="https://play.google.com/store/apps/details?id=com.nianticlabs.pokemongo" class="img-aside" target="_blank"><img src="img/app-store.jpg" alt="App Store"></a>
+            <a href="https://itunes.apple.com/es/app/pokemon-go/id1094591345?mt=8" class="img-aside" target="_blank"><img src="img/google-play.jpg" alt="Google Play"></a>
         </aside>
       </div>
       <div id="pokedex" class="pokedexp">
         <h1>Pokédex</h1>
-          <div class="menu-red">
+          <div class="menu-red left">
             <div>
               <h4>Nombre o Número:</h4>
-                <input id="textfilter" class="search" type= "text" size="20" name="text">
+                <input id="textfilter" list="textfilter" class="search" type= "text" size="20" name="text">
+                <!-- <datalist id="textfilter">
+                  <option value="001"></option>
+                </datalist> -->
                 <label for="textfilter" id="buttonSearch" class="lens"><strong>GO!</strong></label>
             </div>
             <div>
@@ -108,51 +108,65 @@
                 </select>
             </div>
           </div>
-          <div id="viewListFilter" class="grid-ListFilter contenedor">
+          <div class="slider">
+              <ul>
+                <li><img src="img/1.jpg" alt="banner1"></li>
+                <li><img src="img/2.jpg" alt="banner2"></li>
+                <li><img src="img/3.jpg" alt="banner3"></li>
+                <li><img src="img/4.jpg" alt="banner4"></li>
+              </ul>
+          </div>
+          <div id="viewListFilter" class="grid-ListFilter left">
 
 
 
           </div>
       </div>
-      <div id= "descarga" class="descargap">
+      <div id= "topstats" class="statsp">
         <h1>Top Pokemon</h1>
-          <div class="menu-red">
+          <div id= "menu-red-left" class="menu-red">
             <div>
                 <h4>Rango por Frecuencia</h4>
                 <p>La frecuencia es clasificada según el su número de
                     avistamientos, pero también existen Pokemon
                     “raros”, los cuales podrás capturar solo en
-                    eventos, dentro de esta categoría se encuentran 
+                    eventos, dentro de esta categoría se encuentran
                     los denominados Pokemon Legendarios.</p>
-              <select class="select-menu" id="compute">
-                <option value="frecuentes">Más frecuentes</option>
-                <option value="difíciles">Menos frecuentes</option>
-                <option value="legendarios">Legendarios</option>
+              <select class="select-menu" id="statistic">
+                <option value="0">Elige tu opción</option>
+                <option value="1">Más frecuentes</option>
+                <option value="2">Menos frecuentes</option>
+                <option value="3">Legendarios</option>
               </select>
+              <div id="viewListStatistic" class="grid-ListFilterStats">
+
+              </div>
             </div>
           </div>
-          <div class="menu-red right">
+          <div id= "menu-red-right" class="menu-red">
             <div>
                 <h4>Calcula tu CP final</h4>
             </div>
             <div>
               <p>Nombre:</p>
-              <input id="enterPokemon" class="search box" type= "text" size="20" name="text">
-            </div>
-            <div>
+              <input id="searchPokemon" class="search box" type= "text" size="20" name="text">
               <p>Tu CP:</p>
-              <input id="enterCP" class="search box" type= "text" size="20" name="text">
-              <input id="resultCP" type="submit" class="lens" value="START">
+              <input id = "inputCP" class="search box" type= "text" size="20" name="text">
+              <input id = "buttonResultCP" type="submit" class="lens" value="START"><br>
+              <label id = "labelResultCP" for= "buttonResultCP"></label>
+            </div>
+            <div id="viewPCM" class="grid-ListFilter contenedor">
+
             </div>
           </div>
       </div>
     </main>
     <footer>
       <div class="social-bar">
-        <a href="https://www.facebook.com/PokemonGO/" target="_blank"><img src="fb.png" alt="Facebook"></a>
-        <a href="https://dondepokemongo.es/blog.html" target="_blank"><img src="blog.png" alt="Blogger"></a>
-        <a href="https://twitter.com/pokemongoapp" target="_blank"><img src="twt.png" alt="Twitter"></a>
-        <a href="https://www.youtube.com/channel/UCA698bls2pjQyiqP9N-iaeg" target="_blank"><img src="yt.png" alt="Twitter"></a>
+        <a href="https://www.facebook.com/PokemonGO/" target="_blank"><img src="img/fb.png" alt="Facebook"></a>
+        <a href="https://dondepokemongo.es/blog.html" target="_blank"><img src="img/blog.png" alt="Blogger"></a>
+        <a href="https://twitter.com/pokemongoapp" target="_blank"><img src="img/twt.png" alt="Twitter"></a>
+        <a href="https://www.youtube.com/channel/UCA698bls2pjQyiqP9N-iaeg" target="_blank"><img src="img/yt.png" alt="Twitter"></a>
       </div>
       <p>©Copyright 2018 by Jackelin Perez and Athala Abanto</p>
     </footer>
