@@ -73,7 +73,7 @@ const functionfilter = (dataInput, containerInput) => {
           <input type="image" src="${element.img}" class="show-img" >
           <label class="number">N° ${element.num}</label>
           <label class="letter">${element.name}</label>
-          ${filterInArray(element.type, 'number')}
+          ${filterInArray(element.type, 'ele')}
         </div>
       </a>
       <section id="openmodal${i}" class="modal-dialog">

@@ -94,9 +94,8 @@ img.in-line{
   text-justify: auto;
  }
 .slider{
-  width: 60%;
+  width: 65%;
   float: right;
-  padding-top: 0px;
   overflow: hidden;
 }
 .slider ul{
@@ -128,11 +127,14 @@ img.in-line{
 .menu-red{
   width: 30%;
   height: auto;
-  background: #F80C0C;
+  background-image: url(img/menu.jpg); 
   box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
   border-radius: 20px;
   text-align: center;
   padding: 20px;
+}
+.blur{
+  filter: blur(6px);
 }
 #menu-red-right{
   float: right;
@@ -146,7 +148,9 @@ img.in-line{
 float: left;
 }
 h4{
-  color: #fff;
+  color: rgb(255, 255, 255);
+  -webkit-text-stroke: 1px rgb(32, 27, 27);
+  font-weight: 1000;
   text-align: start;
   margin-top: 10px;
   margin-bottom: 10px;
@@ -174,12 +178,13 @@ p{
   margin-bottom: 30px;
 }
 .select-menu{
-  background: #837676;
+  background: #5c5454;
+  font-weight: 1000;
   height: 30px;
   width: 70%;
   text-align: center;
   border-radius: 5px;
-  color: #fff;
+  color: rgb(255, 255, 255);
   margin-bottom: 10px;
 }
 .select-menu:focus{
@@ -201,20 +206,22 @@ p{
 .grid-ListFilter {
     display: grid;
     grid-row-gap: 20px;
-    grid-column-gap: 50px;
+    grid-column-gap: 5px;
     grid-template-columns: repeat(3, 1fr);
+    width: 100%;
     padding: auto;
   }
   .grid-ListFilterStats {
     display: grid;
-    grid-row-gap: 20px;
+    grid-row-gap: 5px;
     grid-column-gap: 5px;
     grid-template-columns: repeat(3, 1fr);
     padding: auto;
+    
   }
 
 .grid-item {
-    background-color: rgba(223, 219, 219, 0.8);
+    background: #414141;
     border: 1px solid rgba(0, 0, 0, 0.8);
     padding: auto;
     font-size: 30px;
@@ -281,9 +288,10 @@ p{
   font-family: Arial, Helvetica, sans-serif;
   font-size: 13px;
   display: flex;
-  justify-content: center;
+  justify-content: flex-start;
   padding: 5px;
   font-weight: bold;
+  border-radius: 10px;
   background: #414141;
 }
 .letter{
@@ -291,10 +299,25 @@ p{
   font-family: Arial, Helvetica, sans-serif;
   font-size: 20px;
   display: flex;
-  justify-content: center;
+  justify-content: flex-start;
   padding: 5px;
   font-weight: bold;
   background: #414141;
+}
+.ele{
+  color: rgb(255, 255, 255);
+  display: flex;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 13px;
+  margin-right: 10px;
+  justify-content: flex-end;
+}
+.show-img{
+  background: #fff;
+  border-radius: 5px;
+  margin-top: 20px;
+  padding-left: 20px;
+  padding-right: 20px;
 }
 .show-img:focus{
   outline: none;
@@ -329,7 +352,7 @@ p{
 }
 
 .grid-container > div {
-  background-color: rgba(255, 255, 255, 0.8);
+  background-color: #414141;
   text-align: center;
   padding: 2px 0;
   font-size: 30px;
