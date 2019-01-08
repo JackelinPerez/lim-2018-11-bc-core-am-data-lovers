@@ -31,7 +31,7 @@ main{
   padding-right: 10px;
 }
 section p{
-  color: #000;
+  color: #333333;
   text-align: justify;
 }
 h1{
@@ -124,10 +124,23 @@ img.in-line{
   75% {margin-left:-300%;}
   100% {margin-left:-300%;}
 }
-.menu-red{
+.menu-pokedex{
   width: 30%;
   height: auto;
   background-image: url(img/menu.jpg);
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  border-radius: 20px;
+  text-align: center;
+  padding: 20px;
+}
+.menu-pokedex-top{
+  width: 30%;
+  height: auto;
+  background:#8d8d8d;
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
   box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
   border-radius: 20px;
   text-align: center;
@@ -149,15 +162,16 @@ float: left;
 }
 h4{
   color: rgb(255, 255, 255);
-  -webkit-text-stroke: 1px rgb(32, 27, 27);
   font-weight: 1000;
+  font-size: 20px;
   text-align: start;
   margin-top: 10px;
   margin-bottom: 10px;
   margin-left: 10px;
 }
 p{
-  color: #fff;
+  color: #383838;
+  font-weight: 900;
   text-align: start;
   margin-top: 10px;
   margin-bottom: 10px;
@@ -178,7 +192,7 @@ p{
   margin-bottom: 30px;
 }
 .select-menu{
-  background: #5c5454;
+  background: #2e2828;
   font-weight: 1000;
   height: 30px;
   width: 70%;
@@ -215,7 +229,7 @@ p{
     display: grid;
     grid-row-gap: 5px;
     grid-column-gap: 5px;
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: repeat(2, 1fr);
     padding: auto;
 
   }
@@ -230,6 +244,7 @@ p{
     border-radius: 10px;
     color: rgb(0, 0, 0);
   }
+  
 /* Ventana Modal */
 .open{
 	color: rgb(0, 0, 0);
@@ -398,7 +413,7 @@ footer p{
 padding-top: 10px;
 text-align: center;
 }
-@media all and (max-width: 1120px){
+@media all and (max-width: 920px){
   main{
     margin: auto;
    width: 100%;
