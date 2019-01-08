@@ -7,6 +7,7 @@ const viewListStatistic = document.getElementById('viewListStatistic');
 const viewPCM = document.getElementById('viewPCM');
 
 const searchPokemon = document.getElementById('searchPokemon');
+const listPokeIDNameCP = document.getElementById('listPokeIDNameCP');
 const inputCP = document.getElementById('inputCP');
 
 const buttonResultCP = document.getElementById('buttonResultCP');
@@ -25,14 +26,14 @@ const goToPagInicio = document.getElementById('pp1');
 const goToPagPokedex = document.getElementById('pp2');
 const goToPagStats = document.getElementById('pp3');
 
-const searchPokemonIDName = (data) => {
-    let createDataList = [];
-    data.forEach((ele, index) => {
-      createDataList.push(`<option value='${ele.name}'>${ele.num}</option>`);
-    });
-    listPokeIDName.innerHTML = createDataList.join('');
-    return 1;
-  };
+const searchPokemonIDName = (data, datalist) => {
+  let createDataList = [];
+  data.forEach((ele) => {
+    createDataList.push(`<option value='${ele.name}'>${ele.num}</option>`);
+  });
+  datalist.innerHTML = createDataList.join('');
+  return 1;
+};
 
 const filterInArray = (inputArray, classlabel) => {
   return inputArray.map(element => {
@@ -163,7 +164,7 @@ const functionMain = () => {
 
     saveArrayObjectFilter = functionListenFilterOrder(dataFSO, 0);
     functionfilter(saveArrayObjectFilter, viewListFilter);
-    searchPokemonIDName(saveArrayObjectFilter);
+    searchPokemonIDName(saveArrayObjectFilter, listPokeIDName);
 
     orderAs.addEventListener('change', () => {
       functionfilter(functionListenOrder(saveArrayObjectFilter), viewListFilter);
@@ -172,8 +173,7 @@ const functionMain = () => {
       listPokeIDName.childNodes.forEach((ele) => {
         if (ele.value === inputPokeIDName.value) {
           dataFSO = ele.value;
-        }
-        else {
+        } else {
           dataFSO = inputPokeIDName.value;
         }
       });
@@ -216,6 +216,8 @@ const functionMain = () => {
     pag3.classList.remove('statsp');
     pag2.classList.add('pokedexp');
 
+    searchPokemonIDName(POKEMON.pokemon, listPokeIDNameCP);
+
     statistic.addEventListener('change', () => {
       const listenOptionStatistic = statistic.options[statistic.selectedIndex].value;
       functionfilter(data.sortData(data.computeStats(POKEMON.pokemon, parseInt(listenOptionStatistic)), 0, 0), viewListStatistic);
@@ -223,7 +225,12 @@ const functionMain = () => {
 
     buttonResultCP.addEventListener('click', () => {
       let outputCPM = [];
-      const saveNamePoke = functionListenFilter(searchPokemon.value, detectLetterNum(searchPokemon.value));
+      let saveNamePoke;
+      listPokeIDNameCP.childNodes.forEach((ele) => {
+        if (ele.value === searchPokemon.value) {
+          saveNamePoke = functionListenFilter(ele.value, 1);
+        }
+      });
       if (saveNamePoke.length !== 0) {
         const objCPM = data.computeStats(POKEMON.pokemon, 4,
           saveNamePoke[0].num, parseInt(inputCP.value));

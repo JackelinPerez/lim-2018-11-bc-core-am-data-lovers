@@ -43,8 +43,8 @@
           <div class="menu-red left">
             <div>
               <h4>Nombre o Número:</h4>
-                <input id="inputPokeIDName" list='listPokeIDName' class="search" type= "text" size="20" name="text">
-                <datalist id='listPokeIDName'>
+                <input id="inputPokeIDName" list="listPokeIDName" class="search" type= "text" size="20" name="text">
+                <datalist id="listPokeIDName">
 
                 </datalist>
                 <label for="inputPokeIDName" id="buttonSearch" class="lens"><strong>GO!</strong></label>
@@ -149,7 +149,10 @@
             </div>
             <div>
               <p>Nombre:</p>
-              <input id="searchPokemon" class="search box" type= "text" size="20" name="text">
+              <input id="searchPokemon" list="listPokeIDNameCP" class="search" type= "text" size="20" name="text">
+              <datalist id="listPokeIDNameCP">
+
+              </datalist>
               <p>Tu CP:</p>
               <input id = "inputCP" class="search box" type= "text" size="20" name="text">
               <input id = "buttonResultCP" type="submit" class="lens" value="START"><br>
