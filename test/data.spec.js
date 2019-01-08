@@ -341,6 +341,8 @@ const outputFilterNum = [
     }]
   }
 ];
+const outputFilterALL = POKEMON;
+const outputFilterNULL = [];
 const outputFilterData0 = [
   {
     'id': 5,
@@ -964,6 +966,13 @@ const outputFilterData11 = [
   [{num: '002', name: 'Ivysaur', img: 'http://www.serebii.net/pokemongo/pokemon/002.png'},
     {num: '003', name: 'Venusaur', img: 'http://www.serebii.net/pokemongo/pokemon/003.png'}]
 ];
+const outputFilterData12 = [{
+  name: 'Charmander',
+  num: '004',
+  img: 'http://www.serebii.net/pokemongo/pokemon/004.png',
+  multipliers: 1.65,
+}];
+
 const outputSortData1 = POKEMON;
 const outputSortData2 = [
   {
@@ -1893,14 +1902,324 @@ const outputSortData4 = [
   }
 ];
 
-const computeStats1 = 0;
-const computeStats2 = {CPProm: 32,
+const computeStats1 = [
+  {
+    'id': 1,
+    'num': '001',
+    'name': 'Bulbasaur',
+    'img': 'http://www.serebii.net/pokemongo/pokemon/001.png',
+    'type': [
+      'Hierba',
+      'Veneno'
+    ],
+    'height': '0.71 m',
+    'weight': '6.9 kg',
+    'candy': 'Bulbasaur Candy',
+    'candy_count': 25,
+    'egg': '2 km',
+    'spawn_chance': 0.69,
+    'avg_spawns': 69,
+    'spawn_time': '20:00',
+    'multipliers': [1.58],
+    'weaknesses': [
+      'Fuego',
+      'Hielo',
+      'Volador',
+      'Psiquico'
+    ],
+    'next_evolution': [{
+      'num': '002',
+      'name': 'Ivysaur'
+    }, {
+      'num': '003',
+      'name': 'Venusaur'
+    }]
+  },
+  {
+    'id': 7,
+    'num': '007',
+    'name': 'Squirtle',
+    'img': 'http://www.serebii.net/pokemongo/pokemon/007.png',
+    'type': [
+      'Agua'
+    ],
+    'height': '0.51 m',
+    'weight': '9.0 kg',
+    'candy': 'Squirtle Candy',
+    'candy_count': 25,
+    'egg': '2 km',
+    'spawn_chance': 0.58,
+    'avg_spawns': 58,
+    'spawn_time': '04:25',
+    'multipliers': [2.1],
+    'weaknesses': [
+      'Electrico',
+      'Hierba'
+    ],
+    'next_evolution': [{
+      'num': '008',
+      'name': 'Wartortle'
+    }, {
+      'num': '009',
+      'name': 'Blastoise'
+    }]
+  },
+  {
+    'id': 10,
+    'num': '010',
+    'name': 'Caterpie',
+    'img': 'http://www.serebii.net/pokemongo/pokemon/010.png',
+    'type': [
+      'Insecto'
+    ],
+    'height': '0.30 m',
+    'weight': '2.9 kg',
+    'candy': 'Caterpie Candy',
+    'candy_count': 12,
+    'egg': '2 km',
+    'spawn_chance': 3.032,
+    'avg_spawns': 303.2,
+    'spawn_time': '16:35',
+    'multipliers': [1.05],
+    'weaknesses': [
+      'Fuego',
+      'Volador',
+      'Roca'
+    ],
+    'next_evolution': [{
+      'num': '011',
+      'name': 'Metapod'
+    }, {
+      'num': '012',
+      'name': 'Butterfree'
+    }]
+  }
+];
+const computeStats2 = [
+  {
+    'id': 2,
+    'num': '002',
+    'name': 'Ivysaur',
+    'img': 'http://www.serebii.net/pokemongo/pokemon/002.png',
+    'type': [
+      'Hierba',
+      'Veneno'
+    ],
+    'height': '0.99 m',
+    'weight': '13.0 kg',
+    'candy': 'Bulbasaur Candy',
+    'candy_count': 100,
+    'egg': 'Not in Eggs',
+    'spawn_chance': 0.042,
+    'avg_spawns': 4.2,
+    'spawn_time': '07:00',
+    'multipliers': [
+      1.2,
+      1.6
+    ],
+    'weaknesses': [
+      'Fuego',
+      'Hielo',
+      'Volador',
+      'Psiquico'
+    ],
+    'prev_evolution': [{
+      'num': '001',
+      'name': 'Bulbasaur'
+    }],
+    'next_evolution': [{
+      'num': '003',
+      'name': 'Venusaur'
+    }]
+  },
+  {
+    'id': 3,
+    'num': '003',
+    'name': 'Venusaur',
+    'img': 'http://www.serebii.net/pokemongo/pokemon/003.png',
+    'type': [
+      'Hierba',
+      'Veneno'
+    ],
+    'height': '2.01 m',
+    'weight': '100.0 kg',
+    'candy': 'Bulbasaur Candy',
+    'egg': 'Not in Eggs',
+    'spawn_chance': 0.017,
+    'avg_spawns': 1.7,
+    'spawn_time': '11:30',
+    'multipliers': null,
+    'weaknesses': [
+      'Fuego',
+      'Hielo',
+      'Volador',
+      'Psiquico'
+    ],
+    'prev_evolution': [{
+      'num': '001',
+      'name': 'Bulbasaur'
+    }, {
+      'num': '002',
+      'name': 'Ivysaur'
+    }]
+  },
+  {
+    'id': 4,
+    'num': '004',
+    'name': 'Charmander',
+    'img': 'http://www.serebii.net/pokemongo/pokemon/004.png',
+    'type': [
+      'Fuego'
+    ],
+    'height': '0.61 m',
+    'weight': '8.5 kg',
+    'candy': 'Charmander Candy',
+    'candy_count': 25,
+    'egg': '2 km',
+    'spawn_chance': 0.253,
+    'avg_spawns': 25.3,
+    'spawn_time': '08:45',
+    'multipliers': [1.65],
+    'weaknesses': [
+      'Agua',
+      'Tierra',
+      'Roca'
+    ],
+    'next_evolution': [{
+      'num': '005',
+      'name': 'Charmeleon'
+    }, {
+      'num': '006',
+      'name': 'Charizard'
+    }]
+  },
+  {
+    'id': 5,
+    'num': '005',
+    'name': 'Charmeleon',
+    'img': 'http://www.serebii.net/pokemongo/pokemon/005.png',
+    'type': [
+      'Fuego'
+    ],
+    'height': '1.09 m',
+    'weight': '19.0 kg',
+    'candy': 'Charmander Candy',
+    'candy_count': 100,
+    'egg': 'Not in Eggs',
+    'spawn_chance': 0.012,
+    'avg_spawns': 1.2,
+    'spawn_time': '19:00',
+    'multipliers': [1.79],
+    'weaknesses': [
+      'Agua',
+      'Tierra',
+      'Roca'
+    ],
+    'prev_evolution': [{
+      'num': '004',
+      'name': 'Charmander'
+    }],
+    'next_evolution': [{
+      'num': '006',
+      'name': 'Charizard'
+    }]
+  },
+  {
+    'id': 6,
+    'num': '006',
+    'name': 'Charizard',
+    'img': 'http://www.serebii.net/pokemongo/pokemon/006.png',
+    'type': [
+      'Fuego',
+      'Volador'
+    ],
+    'height': '1.70 m',
+    'weight': '90.5 kg',
+    'candy': 'Charmander Candy',
+    'egg': 'Not in Eggs',
+    'spawn_chance': 0.0031,
+    'avg_spawns': 0.31,
+    'spawn_time': '13:34',
+    'multipliers': null,
+    'weaknesses': [
+      'Agua',
+      'Electrico',
+      'Roca'
+    ],
+    'prev_evolution': [{
+      'num': '004',
+      'name': 'Charmander'
+    }, {
+      'num': '005',
+      'name': 'Charmeleon'
+    }]
+  },
+  {
+    'id': 8,
+    'num': '008',
+    'name': 'Wartortle',
+    'img': 'http://www.serebii.net/pokemongo/pokemon/008.png',
+    'type': [
+      'Agua'
+    ],
+    'height': '0.99 m',
+    'weight': '22.5 kg',
+    'candy': 'Squirtle Candy',
+    'candy_count': 100,
+    'egg': 'Not in Eggs',
+    'spawn_chance': 0.034,
+    'avg_spawns': 3.4,
+    'spawn_time': '07:02',
+    'multipliers': [1.4],
+    'weaknesses': [
+      'Electrico',
+      'Hierba'
+    ],
+    'prev_evolution': [{
+      'num': '007',
+      'name': 'Squirtle'
+    }],
+    'next_evolution': [{
+      'num': '009',
+      'name': 'Blastoise'
+    }]
+  },
+  {
+    'id': 9,
+    'num': '009',
+    'name': 'Blastoise',
+    'img': 'http://www.serebii.net/pokemongo/pokemon/009.png',
+    'type': [
+      'Agua'
+    ],
+    'height': '1.60 m',
+    'weight': '85.5 kg',
+    'candy': 'Squirtle Candy',
+    'egg': 'Not in Eggs',
+    'spawn_chance': 0.0067,
+    'avg_spawns': 0.67,
+    'spawn_time': '00:06',
+    'multipliers': null,
+    'weaknesses': [
+      'Electrico',
+      'Hierba'
+    ],
+    'prev_evolution': [{
+      'num': '007',
+      'name': 'Squirtle'
+    }, {
+      'num': '008',
+      'name': 'Wartortle'
+    }]
+  },
+];
+const computeStats3 = [];
+const computeStats4 = {CPProm: 32,
   img: 'http://www.serebii.net/pokemongo/pokemon/002.png',
   name: 'Ivysaur',
   num: '002'};
-// const computeStats3 = [];
-// const computeStats4 = [];
-// const computeStats5 = [];
+const computeStats5 = 0;
+
 require('../src/data.js');
 
 const auxPokemon = POKEMON;
@@ -1929,6 +2248,12 @@ describe('Data POKEMON', () => {
   describe('data.filterData', () => {
     it('is a function', () => {
       expect(typeof data.filterData).toBe('function');
+    });
+    it('input = vacio deberia retornar el arreglo completo', () => {
+      expect(data.filterData(POKEMON, '', 0)).toEqual(outputFilterALL);
+    });
+    it('codition !== [0-12] deberia retornar un arreglo vacio', () => {
+      expect(data.filterData(POKEMON, 'pika', 15)).toEqual(outputFilterNULL);
     });
     it('input = 005 deberia retornar el de num= 005', () => {
       expect(data.filterData(POKEMON, '005', 0)).toEqual(outputFilterData0);
@@ -1969,6 +2294,9 @@ describe('Data POKEMON', () => {
     it('input = 001 is deberia retornar las evoluciones SIGUIENTES', () => {
       expect(data.filterData(POKEMON, '001', 11)).toEqual(outputFilterData11);
     });
+    it('input = 004 is deberia retornar un nuevo arreglo con promMultipliers', () => {
+      expect(data.filterData(POKEMON, '004', 12)).toEqual(outputFilterData12);
+    });
   });
   describe('data.sortData', () => {
     it('is a function', () => {
@@ -1993,10 +2321,19 @@ describe('Data POKEMON', () => {
       expect(typeof data.computeStats).toBe('function');
     });
     it('Rango por frecuencia caso=1', () => {
-      expect(data.computeStats(POKEMON, 4, '152dsd', 20)).toEqual(computeStats1);
+      expect(data.computeStats(POKEMON, 1)).toEqual(computeStats1);
     });
-    it('is a function', () => {
-      expect(data.computeStats(POKEMON, 4, '001', 20)).toEqual(computeStats2);
+    it('Rango por frecuencia caso=2', () => {
+      expect(data.computeStats(POKEMON, 2)).toEqual(computeStats2);
+    });
+    it('Rango por frecuencia caso=3', () => {
+      expect(data.computeStats(POKEMON, 3)).toEqual(computeStats3);
+    });
+    it('caso PCI input= 001', () => {
+      expect(data.computeStats(POKEMON, 4, '001', 20)).toEqual(computeStats4);
+    });
+    it('caso PCI input= 152dsd ', () => {
+      expect(data.computeStats(POKEMON, 4, '152dsd', 20)).toEqual(computeStats5);
     });
   });
 });
