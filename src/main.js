@@ -1,10 +1,13 @@
-const textfilter = document.getElementById('textfilter');
+const inputPokeIDName = document.getElementById('inputPokeIDName');
+const listPokeIDName = document.getElementById('listPokeIDName');
 const buttonSearch = document.getElementById('buttonSearch');
+
 const viewListFilter = document.getElementById('viewListFilter');
 const viewListStatistic = document.getElementById('viewListStatistic');
 const viewPCM = document.getElementById('viewPCM');
 
 const searchPokemon = document.getElementById('searchPokemon');
+const listPokeIDNameCP = document.getElementById('listPokeIDNameCP');
 const inputCP = document.getElementById('inputCP');
 
 const buttonResultCP = document.getElementById('buttonResultCP');
@@ -22,6 +25,15 @@ const pag3 = document.getElementById('topstats');
 const goToPagInicio = document.getElementById('pp1');
 const goToPagPokedex = document.getElementById('pp2');
 const goToPagStats = document.getElementById('pp3');
+
+const searchPokemonIDName = (data, datalist) => {
+  let createDataList = [];
+  data.forEach((ele) => {
+    createDataList.push(`<option value='${ele.name}'>${ele.num}</option>`);
+  });
+  datalist.innerHTML = createDataList.join('');
+  return 1;
+};
 
 const filterInArray = (inputArray, classlabel) => {
   return inputArray.map(element => {
@@ -152,12 +164,19 @@ const functionMain = () => {
 
     saveArrayObjectFilter = functionListenFilterOrder(dataFSO, 0);
     functionfilter(saveArrayObjectFilter, viewListFilter);
+    searchPokemonIDName(saveArrayObjectFilter, listPokeIDName);
 
     orderAs.addEventListener('change', () => {
       functionfilter(functionListenOrder(saveArrayObjectFilter), viewListFilter);
     });
     buttonSearch.addEventListener('click', () => {
-      dataFSO = textfilter.value;
+      listPokeIDName.childNodes.forEach((ele) => {
+        if (ele.value === inputPokeIDName.value) {
+          dataFSO = ele.value;
+        } else {
+          dataFSO = inputPokeIDName.value;
+        }
+      });
       saveArrayObjectFilter = functionListenFilterOrder(dataFSO, detectLetterNum(dataFSO));
       functionfilter(saveArrayObjectFilter, viewListFilter);
       if (saveArrayObjectFilter.length === 0)
@@ -167,7 +186,7 @@ const functionMain = () => {
       orderAs.selectedIndex = 0;
       filterAsEgg.selectedIndex = 0;
       filterAsWeaknesses.selectedIndex = 0;
-      textfilter.value = '';
+      inputPokeIDName.value = '';
       dataFSO = filterAsType.options[filterAsType.selectedIndex].value;
       saveArrayObjectFilter = functionListenOrder(functionListenFilter(dataFSO, 2));
       functionfilter(saveArrayObjectFilter, viewListFilter);
@@ -176,7 +195,7 @@ const functionMain = () => {
       orderAs.selectedIndex = 0;
       filterAsEgg.selectedIndex = 0;
       filterAsType.selectedIndex = 0;
-      textfilter.value = '';
+      inputPokeIDName.value = '';
       dataFSO = filterAsWeaknesses.options[filterAsWeaknesses.selectedIndex].value;
       saveArrayObjectFilter = functionListenOrder(functionListenFilter(dataFSO, 9));
       functionfilter(saveArrayObjectFilter, viewListFilter);
@@ -185,7 +204,7 @@ const functionMain = () => {
       orderAs.selectedIndex = 0;
       filterAsType.selectedIndex = 0;
       filterAsWeaknesses.selectedIndex = 0;
-      textfilter.value = '';
+      inputPokeIDName.value = '';
       dataFSO = filterAsEgg.options[filterAsEgg.selectedIndex].value;
       saveArrayObjectFilter = functionListenOrder(functionListenFilter(dataFSO, 6));
       functionfilter(saveArrayObjectFilter, viewListFilter);
@@ -197,6 +216,8 @@ const functionMain = () => {
     pag3.classList.remove('statsp');
     pag2.classList.add('pokedexp');
 
+    searchPokemonIDName(POKEMON.pokemon, listPokeIDNameCP);
+
     statistic.addEventListener('change', () => {
       const listenOptionStatistic = statistic.options[statistic.selectedIndex].value;
       functionfilter(data.sortData(data.computeStats(POKEMON.pokemon, parseInt(listenOptionStatistic)), 0, 0), viewListStatistic);
@@ -204,7 +225,12 @@ const functionMain = () => {
 
     buttonResultCP.addEventListener('click', () => {
       let outputCPM = [];
-      const saveNamePoke = functionListenFilter(searchPokemon.value, detectLetterNum(searchPokemon.value));
+      let saveNamePoke;
+      listPokeIDNameCP.childNodes.forEach((ele) => {
+        if (ele.value === searchPokemon.value) {
+          saveNamePoke = functionListenFilter(ele.value, 1);
+        }
+      });
       if (saveNamePoke.length !== 0) {
         const objCPM = data.computeStats(POKEMON.pokemon, 4,
           saveNamePoke[0].num, parseInt(inputCP.value));
