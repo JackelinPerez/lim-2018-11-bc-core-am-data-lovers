@@ -222,6 +222,11 @@ const functionMain = () => {
       const listenOptionStatistic = statistic.options[statistic.selectedIndex].value;
       functionfilter(data.sortData(data.computeStats(POKEMON.pokemon, parseInt(listenOptionStatistic)), 0, 0), viewListStatistic);
     });
+    
+    searchPokemon.addEventListener('change', () => {
+      viewPCM.innerHTML = '';
+      labelResultCP.innerHTML = '';
+    });
 
     buttonResultCP.addEventListener('click', () => {
       let outputCPM = [];
