@@ -102,9 +102,8 @@ const filterData = (data, dataFilter, condition) => {
     if (saveObject.length !== 0) {
       newArrayFilter = Object.keys(saveObject[0]).map(element => {
         if (element === 'multipliers' && saveObject[0].multipliers !== null) {
-          promMultipliers = saveObject[0].multipliers.reduce((primer, segundo) => {
-            return primer + segundo;
-          }) / saveObject[0].multipliers.length;
+          promMultipliers = saveObject[0].multipliers.reduce((primer, segundo) =>
+            primer + segundo) / saveObject[0].multipliers.length;
           const objectNew = {};
           objectNew.name = saveObject[0].name;
           objectNew.num = saveObject[0].num;
@@ -156,17 +155,15 @@ const computeStats = (data, condition, pokemonSearch, cpInput) => {
   const avgSpawns = obj.reduce((firstElement, secondElement) => firstElement + secondElement);
   const meanSpawns = avgSpawns / obj.length;
   let cpMax = {};
-  avProm = data.filter(element => {
-    switch (condition) {
-    case 1:
-      return element.avg_spawns > meanSpawns;
-    case 2:
-      return element.avg_spawns !== 0 && element.avg_spawns < meanSpawns;
-    case 3:
-      return element.avg_spawns === 0;
-    }
-  });
-  if (condition === 4) {
+
+  switch (condition) {
+  case 1:
+    avProm = data.filter(element => element.avg_spawns > meanSpawns); break;
+  case 2:
+    avProm = data.filter(element => element.avg_spawns !== 0 && element.avg_spawns < meanSpawns); break;
+  case 3:
+    avProm = data.filter(element => element.avg_spawns === 0); break;
+  case 4:
     if (filterData(data, pokemonSearch, 12).length > 0) {
       const saveObjectMultipliers = filterData(data, pokemonSearch, 12)[0];
       cpMax.CPProm = Math.round(saveObjectMultipliers.multipliers * cpInput);
