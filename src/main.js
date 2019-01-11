@@ -22,9 +22,11 @@ const statistic = document.getElementById('statistic');
 const pag1 = document.getElementById('inicio');
 const pag2 = document.getElementById('pokedex');
 const pag3 = document.getElementById('topstats');
+const pag4 = document.getElementById('chart');
 const goToPagInicio = document.getElementById('pp1');
 const goToPagPokedex = document.getElementById('pp2');
 const goToPagStats = document.getElementById('pp3');
+const goToPagChart = document.getElementById('pp4');
 
 const searchPokemonIDName = (data, datalist) => {
   let createDataList = [];
@@ -147,12 +149,14 @@ const functionMain = () => {
     pag1.style.display = 'block';
     pag2.classList.add('pokedexp');
     pag3.classList.add('statsp');
+    pag4.classList.add('chartp');
   });
 
   goToPagPokedex.addEventListener('click', () => {
     pag1.style.display = 'none';
     pag2.classList.remove('pokedexp');
     pag3.classList.add('statsp');
+    pag4.classList.add('chartp');
 
     orderAs.selectedIndex = 0;
     filterAsType.selectedIndex = 0;
@@ -215,6 +219,7 @@ const functionMain = () => {
     pag1.style.display = 'none';
     pag3.classList.remove('statsp');
     pag2.classList.add('pokedexp');
+    pag4.classList.add('chartp');
 
     searchPokemonIDName(POKEMON.pokemon, listPokeIDNameCP);
 
@@ -254,6 +259,12 @@ const functionMain = () => {
         alert('No se encontro pokemon con esas caracteristicas');
       }
     });
+  });
+  goToPagChart.addEventListener('click', () => {
+    pag1.style.display = 'none';
+    pag4.classList.remove('chartp');
+    pag2.classList.add('pokedexp');
+    pag3.classList.add('statsp');
   });
 };
 

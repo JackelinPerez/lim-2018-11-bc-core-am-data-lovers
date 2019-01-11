@@ -8,6 +8,9 @@
 .statsp{
     display:none;
 }
+.chartsp{
+  display:none;
+}
 body{
   margin: 0;
   font-family: sans-serif;
@@ -367,7 +370,7 @@ p{
 }
 
 .grid-container > div {
-  background-color: #414141;
+  background-color: #ffffff;
   text-align: center;
   padding: 2px 0;
   font-size: 30px;
