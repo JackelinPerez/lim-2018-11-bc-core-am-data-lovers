@@ -1,4 +1,5 @@
 # Pokemon Go
+[Link](https://bit.ly/2sscqFp)
 
 ## Índice
 
