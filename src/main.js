@@ -1,3 +1,27 @@
+let dataPokemon;
+fetch('https://raw.githubusercontent.com/JackelinPerez/lim-2018-11-bc-core-am-data-lovers/master/src/data/pokemon/pokemon.json')
+.then((response) => {
+  if (response.status === 200) {
+    // Estado de respuesta es OK, retornaremos el tipo de archivo que analizo la promesa
+    return response.json();
+  } else {
+    // Código en caso de que nos respondan con algún error en respuesta
+  }
+})
+.then((respuestaJson) => {
+  // Código que usa el JSON
+  dataPokemon = respuestaJson.pokemon;
+  // functionMain();
+})
+.catch((error) => {
+  /* Código en caso de que la llamada falle
+   * Como cuando el usuario NO tiene internet, o se haya cortado la
+   * comunicación.
+   */
+  alert(error.message);
+});
+
+
 const inputPokeIDName = document.getElementById('inputPokeIDName');
 const listPokeIDName = document.getElementById('listPokeIDName');
 const buttonSearch = document.getElementById('buttonSearch');
@@ -109,7 +133,7 @@ const functionfilter = (dataInput, containerInput) => {
           <div class="item5">
           <input type="image" src="${element.img}">
           </div>
-          <div class= "item3">${filterEvolution(POKEMON.pokemon, element.num)}</div>
+          <div class= "item3">${filterEvolution(dataPokemon, element.num)}</div>
         </div>
         </section>
       </section>`
@@ -119,7 +143,7 @@ const functionfilter = (dataInput, containerInput) => {
 };
 
 const functionListenFilter = (dataFSO, listenFilterAs) => {
-  return data.filterData(POKEMON.pokemon, dataFSO, listenFilterAs);
+  return data.filterData(dataPokemon, dataFSO, listenFilterAs);
 };
 
 const functionListenOrder = (dataOrder) => {
@@ -221,11 +245,11 @@ const functionMain = () => {
     pag2.classList.add('pokedexp');
     pag4.classList.add('chartp');
 
-    searchPokemonIDName(POKEMON.pokemon, listPokeIDNameCP);
+    searchPokemonIDName(dataPokemon, listPokeIDNameCP);
 
     statistic.addEventListener('change', () => {
       const listenOptionStatistic = statistic.options[statistic.selectedIndex].value;
-      functionfilter(data.sortData(data.computeStats(POKEMON.pokemon, parseInt(listenOptionStatistic)), 0, 0), viewListStatistic);
+      functionfilter(data.sortData(data.computeStats(dataPokemon, parseInt(listenOptionStatistic)), 0, 0), viewListStatistic);
     });
     
     searchPokemon.addEventListener('change', () => {
@@ -242,7 +266,7 @@ const functionMain = () => {
         }
       });
       if (saveNamePoke.length !== 0) {
-        const objCPM = data.computeStats(POKEMON.pokemon, 4,
+        const objCPM = data.computeStats(dataPokemon, 4,
           saveNamePoke[0].num, parseInt(inputCP.value));
         if (objCPM) {
           outputCPM.push(`<a href="#openmodal" class="open">
